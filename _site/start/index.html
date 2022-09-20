@@ -1,0 +1,424 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Getting started - zpic@edu</title>
+<meta name="description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="zpic@edu">
+<meta property="og:title" content="Getting started">
+<meta property="og:url" content="http://localhost:4000/start/">
+
+
+  <meta property="og:description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/start/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+
+
+
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          zpic@edu
+          <span class="site-subtitle">PIC codes for plasma physics education</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About ZPIC</a>
+            </li><li class="masthead__menu-item">
+              <a href="/start">Getting started</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/examples">Examples</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000//" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        <li class="current">Getting started</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/start"><span class="nav__sub-title">Getting started</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/start/docker">Running a Docker image</a></li>
+          
+            <li><a href="/start/download">Download ZPIC</a></li>
+          
+            <li><a href="/start/compile">Compiling the code</a></li>
+          
+            <li><a href="/start/compile/macosx">- Mac OS X</a></li>
+          
+            <li><a href="/start/compile/linux">- Linux</a></li>
+          
+            <li><a href="/start/compile/win64">- Windows (WSL)</a></li>
+          
+            <li><a href="/start/compile/msys2">- Windows (MSYS2)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/python"><span class="nav__sub-title">Using ZPIC with Python</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/python/start">Getting started with Python</a></li>
+          
+            <li><a href="/documentation/python/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/python/data">Simulation data</a></li>
+          
+            <li><a href="/documentation/python/save">Saving output</a></li>
+          
+            <li><a href="/documentation/python/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/python/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/python/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/python/eminit">Initial EM fields</a></li>
+          
+            <li><a href="/documentation/python/emext">External EM fields</a></li>
+          
+            <li><a href="/documentation/python/spectralsolver">Spectral EM field solver</a></li>
+          
+            <li><a href="/documentation/python/api">Python API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/c"><span class="nav__sub-title">Using ZPIC with C</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/c/start">Getting started with C</a></li>
+          
+            <li><a href="/documentation/c/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/c/diag">Simulation diagnostics</a></li>
+          
+            <li><a href="/documentation/c/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/c/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/c/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/c/api">C API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/examples"><span class="nav__sub-title">Examples</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/examples/#tutorials">Tutorial</a></li>
+          
+            <li><a href="/examples/#classroom-examples">Classroom examples</a></li>
+          
+            <li><a href="/examples/#landmark-papers">Landmark papers</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Getting started">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Getting started
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Getting started</h4></header>
+              <ul class="toc__menu"><li><a href="#quickstart">Quickstart</a></li><li><a href="#using-zpic">Using ZPIC</a></li><li><a href="#zpic-as-a-c-code">ZPIC as a C code</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="quickstart">Quickstart</h2>
+
+<p>The quickest way to start using ZPIC and learn about PIC simulations is to use <code class="language-plaintext highlighter-rouge">mybinder.org</code>, just click the button below:</p>
+
+<p><a href="https://mybinder.org/v2/gh/ricardo-fonseca/zpic/HEAD?urlpath=/lab/tree/python/notebooks/README.ipynb" class="btn btn--info"><i class="fas fa-cloud" aria-hidden="true"></i>  Launch ZPIC binder</a></p>
+
+<p>(It takes a few minutes to load)</p>
+
+<h2 id="using-zpic">Using ZPIC</h2>
+
+<p>ZPIC includes a suite of 1D/2D fully relativistic electromagnetic PIC codes, as well as 1D electrostatic. These codes can all be run from a Python environment, and in particular inside Jupyter notebooks, which is the recommended way of using ZPIC. To use ZPIC with Python three options are available:</p>
+
+<ol>
+  <li>
+    <p>Launch ZPIC in <a href="https://mybinder.org/v2/gh/ricardo-fonseca/zpic/HEAD?urlpath=/lab/tree/python/notebooks/README.ipynb">mybinder.org</a>. This is the easiest way to use ZPIC but you will be limited to short sessions. (By the way, mybinder.org rules!)</p>
+  </li>
+  <li>
+    <p>Use a <a href="docker">Docker image</a>. This is usually the best option for use in a classroom type environment, as it requires the least amount of configuration (i.e., have Docker installed).</p>
+  </li>
+  <li>
+    <p><a href="download">Download</a> ZPIC and <a href="compile">compile</a> it on your computer. This option is recommended for users wanting to create their own simulations and notebooks, and requires a working C99 compiler and python environment.</p>
+  </li>
+</ol>
+
+<p>For all options, you should check that your ZPIC installation is ok by running the tutorial <code class="language-plaintext highlighter-rouge">ZPIC.ipynb</code> notebook, available in the <code class="language-plaintext highlighter-rouge">python/notebooks/tutorial/</code> folder.</p>
+
+<p>Once you have ZPIC up and running the next steps are to read the documentation, available <a href="../documentation/python">here</a>, and to to check the examples library, in the <code class="language-plaintext highlighter-rouge">python/notebooks</code> folder. The <a href="../examples">examples</a> page has a detailed description of the notebooks available.</p>
+
+<h2 id="zpic-as-a-c-code">ZPIC as a C code</h2>
+
+<p>The core components of ZPIC are written in C (C99). This is not only for performance reasons but also to more easily allow the use of ZPIC codes in other projects and libraries. As a result, ZPIC codes can also be run as pure C codes, whith no dependencies, making them extremely portable.</p>
+
+<p>For most users this will not be the best choice, as the codes cannot be run interactively this way, and it will be necessary to save simulation output to disk for visualization and post-processing. However, if users want to avoid Python and/or want to run very long simulations, this may be a good choice.</p>
+
+<p>To run the ZPIC codes as pure C codes begin by <a href="download">downloading</a> the code to your computer, and then follow the instructions in the <a href="../documentation/c">Using ZPIC with C</a> page.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 zpic@edu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

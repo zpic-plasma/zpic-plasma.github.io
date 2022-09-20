@@ -1,0 +1,472 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Electric current smoothing - zpic@edu</title>
+<meta name="description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="zpic@edu">
+<meta property="og:title" content="Electric current smoothing">
+<meta property="og:url" content="http://localhost:4000/documentation/c/smooth">
+
+
+  <meta property="og:description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/documentation/c/smooth">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+
+<!-- for mathjax support -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          zpic@edu
+          <span class="site-subtitle">PIC codes for plasma physics education</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About ZPIC</a>
+            </li><li class="masthead__menu-item">
+              <a href="/start">Getting started</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/examples">Examples</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000//" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/documentation" itemprop="item"><span itemprop="name">Documentation</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/c" itemprop="item"><span itemprop="name">C</span></a>
+          <meta itemprop="position" content="3" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Electric current smoothing</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/start"><span class="nav__sub-title">Getting started</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/start/docker">Running a Docker image</a></li>
+          
+            <li><a href="/start/download">Download ZPIC</a></li>
+          
+            <li><a href="/start/compile">Compiling the code</a></li>
+          
+            <li><a href="/start/compile/macosx">- Mac OS X</a></li>
+          
+            <li><a href="/start/compile/linux">- Linux</a></li>
+          
+            <li><a href="/start/compile/win64">- Windows (WSL)</a></li>
+          
+            <li><a href="/start/compile/msys2">- Windows (MSYS2)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/python"><span class="nav__sub-title">Using ZPIC with Python</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/python/start">Getting started with Python</a></li>
+          
+            <li><a href="/documentation/python/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/python/data">Simulation data</a></li>
+          
+            <li><a href="/documentation/python/save">Saving output</a></li>
+          
+            <li><a href="/documentation/python/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/python/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/python/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/python/eminit">Initial EM fields</a></li>
+          
+            <li><a href="/documentation/python/emext">External EM fields</a></li>
+          
+            <li><a href="/documentation/python/spectralsolver">Spectral EM field solver</a></li>
+          
+            <li><a href="/documentation/python/api">Python API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/c"><span class="nav__sub-title">Using ZPIC with C</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/c/start">Getting started with C</a></li>
+          
+            <li><a href="/documentation/c/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/c/diag">Simulation diagnostics</a></li>
+          
+            <li><a href="/documentation/c/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/c/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/c/smooth" class="active">Current smoothing</a></li>
+          
+            <li><a href="/documentation/c/api">C API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/examples"><span class="nav__sub-title">Examples</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/examples/#tutorials">Tutorial</a></li>
+          
+            <li><a href="/examples/#classroom-examples">Classroom examples</a></li>
+          
+            <li><a href="/examples/#landmark-papers">Landmark papers</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Electric current smoothing">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Electric current smoothing
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>For the finite difference models (em1d, em2d), the input parameters may also optionally define some smoothing (filtering) parameters to be applied to the electric current following the deposition of this quantity from particle motion. This is achieved through a call to the <code class="language-plaintext highlighter-rouge">sim_set_smooth()</code> routine:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">sim_set_smooth</span><span class="p">(</span> <span class="n">t_simulation</span><span class="o">*</span> <span class="n">sim</span><span class="p">,</span> <span class="n">t_smooth</span><span class="o">*</span> <span class="n">smooth</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This routine should be called inside <code class="language-plaintext highlighter-rouge">sim_init()</code>, somewhere after the call to <code class="language-plaintext highlighter-rouge">sim_new()</code>. Smoothing parameters are defined in the using a <code class="language-plaintext highlighter-rouge">t_smooth</code> structure:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Smoothing parameters</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>xtype</td>
+      <td>Smoothing type along x. Must be one of <code class="language-plaintext highlighter-rouge">NONE</code>, <code class="language-plaintext highlighter-rouge">BINOMIAL</code> or <code class="language-plaintext highlighter-rouge">COMPENSATED</code></td>
+    </tr>
+    <tr>
+      <td>xlevel</td>
+      <td>Number of passes of the smoothing kernel along x</td>
+    </tr>
+    <tr>
+      <td>ytype</td>
+      <td>(2D only) Same as xtype for the y direction</td>
+    </tr>
+    <tr>
+      <td>ylevel</td>
+      <td>(2D only) Same as xlevel for the y direction</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For <code class="language-plaintext highlighter-rouge">BINOMIAL</code> smoothing, filtering is performed through a convolution of the grid data with a [1,2,1] kernel. This operation is repeated <code class="language-plaintext highlighter-rouge">n</code> times, where <code class="language-plaintext highlighter-rouge">n</code> is defined by the <code class="language-plaintext highlighter-rouge">xlevel | ylevel</code> parameters.</p>
+
+<p>For <code class="language-plaintext highlighter-rouge">COMPENSATED</code> smoothing, the code will first apply <code class="language-plaintext highlighter-rouge">BINOMIAL</code> smoothing as described above, and will perform an additional pass with a specially calculated kernel that ensures that the filter transfer function near $k=0$ will be on the order of $1 + O(k^3)$, zeroing out $k^2$ dependencies. In pratice this leads to a filter that is flatter near $k=0$ and has a sharper drop near the cutoff frequency.</p>
+
+<p>The following example sets up a 4th order <code class="language-plaintext highlighter-rouge">COMPENSATED</code> smoothing along the <em>x</em> direction:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">sim_init</span><span class="p">(</span> <span class="n">t_simulation</span><span class="o">*</span> <span class="n">sim</span> <span class="p">){</span>
+
+  <span class="p">(...)</span>
+
+  <span class="c1">// Initialize Simulation data</span>
+  <span class="n">sim_new</span><span class="p">(</span> <span class="n">sim</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">ndump</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">n_species</span> <span class="p">);</span>
+
+  <span class="p">(...)</span>
+
+  <span class="c1">// Set current smoothing (this must come after sim_new)</span>
+  <span class="n">t_smooth</span> <span class="n">smooth</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">.</span><span class="n">xtype</span> <span class="o">=</span> <span class="n">COMPENSATED</span><span class="p">,</span>
+    <span class="p">.</span><span class="n">xlevel</span> <span class="o">=</span> <span class="mi">4</span>
+  <span class="p">};</span>
+
+  <span class="n">sim_set_smooth</span><span class="p">(</span> <span class="n">sim</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">smooth</span> <span class="p">);</span>
+
+  <span class="p">(...)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 zpic@edu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

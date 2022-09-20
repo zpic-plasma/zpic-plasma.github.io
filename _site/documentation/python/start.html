@@ -1,0 +1,503 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Getting started - zpic@edu</title>
+<meta name="description" content="Getting started with ZPIC simulations in Python">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="zpic@edu">
+<meta property="og:title" content="Getting started">
+<meta property="og:url" content="http://localhost:4000/documentation/python/start">
+
+
+  <meta property="og:description" content="Getting started with ZPIC simulations in Python">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/documentation/python/start">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+
+<!-- for mathjax support -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          zpic@edu
+          <span class="site-subtitle">PIC codes for plasma physics education</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About ZPIC</a>
+            </li><li class="masthead__menu-item">
+              <a href="/start">Getting started</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/examples">Examples</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000//" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/documentation" itemprop="item"><span itemprop="name">Documentation</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/python" itemprop="item"><span itemprop="name">Python</span></a>
+          <meta itemprop="position" content="3" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Getting started</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/start"><span class="nav__sub-title">Getting started</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/start/docker">Running a Docker image</a></li>
+          
+            <li><a href="/start/download">Download ZPIC</a></li>
+          
+            <li><a href="/start/compile">Compiling the code</a></li>
+          
+            <li><a href="/start/compile/macosx">- Mac OS X</a></li>
+          
+            <li><a href="/start/compile/linux">- Linux</a></li>
+          
+            <li><a href="/start/compile/win64">- Windows (WSL)</a></li>
+          
+            <li><a href="/start/compile/msys2">- Windows (MSYS2)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/python"><span class="nav__sub-title">Using ZPIC with Python</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/python/start" class="active">Getting started with Python</a></li>
+          
+            <li><a href="/documentation/python/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/python/data">Simulation data</a></li>
+          
+            <li><a href="/documentation/python/save">Saving output</a></li>
+          
+            <li><a href="/documentation/python/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/python/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/python/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/python/eminit">Initial EM fields</a></li>
+          
+            <li><a href="/documentation/python/emext">External EM fields</a></li>
+          
+            <li><a href="/documentation/python/spectralsolver">Spectral EM field solver</a></li>
+          
+            <li><a href="/documentation/python/api">Python API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/c"><span class="nav__sub-title">Using ZPIC with C</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/c/start">Getting started with C</a></li>
+          
+            <li><a href="/documentation/c/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/c/diag">Simulation diagnostics</a></li>
+          
+            <li><a href="/documentation/c/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/c/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/c/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/c/api">C API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/examples"><span class="nav__sub-title">Examples</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/examples/#tutorials">Tutorial</a></li>
+          
+            <li><a href="/examples/#classroom-examples">Classroom examples</a></li>
+          
+            <li><a href="/examples/#landmark-papers">Landmark papers</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Getting started">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Getting started
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Getting started</h4></header>
+              <ul class="toc__menu"><li><a href="#choosing-the-code-version">Choosing the code version</a></li><li><a href="#setting-the-simulation-parameters">Setting the simulation parameters</a><ul><li><a href="#example">Example</a></li></ul></li><li><a href="#adding-particles">Adding particles</a></li><li><a href="#running-the-simulation">Running the simulation</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="choosing-the-code-version">Choosing the code version</h2>
+
+<p>To run a ZPIC simulation in Python (including Jupyter notebooks) users must first choose which code version is to be used and import the appropriate module. Available versions are:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">em1d</code>, <code class="language-plaintext highlighter-rouge">em1ds</code> - 1D electromagnetic code using a finite difference field solver (<code class="language-plaintext highlighter-rouge">em1d</code>) or a spectral field solver (<code class="language-plaintext highlighter-rouge">em1ds</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">em2d</code>, <code class="language-plaintext highlighter-rouge">em2ds</code> - 2D electromagnetic code using a finite difference field solver (<code class="language-plaintext highlighter-rouge">em2d</code>) or a spectral field solver (<code class="language-plaintext highlighter-rouge">em2ds</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">es1d</code> - 1D electrostatic code using a spectral field solver</li>
+</ul>
+
+<p>To run the simulation users must start by creating a <code class="language-plaintext highlighter-rouge">Simulation</code> object from the appropriate module, e.g.:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">em1d</span>
+<span class="n">sim</span> <span class="o">=</span> <span class="n">em1d</span><span class="p">.</span><span class="n">Simulation</span><span class="p">(</span> <span class="p">...</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="setting-the-simulation-parameters">Setting the simulation parameters</h2>
+
+<p>Simulation parameters are set at the creation of the <code class="language-plaintext highlighter-rouge">Simulation</code> object. The <code class="language-plaintext highlighter-rouge">Simulation</code> class constructor has the following syntax:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Simulation</span><span class="p">(</span> <span class="n">nx</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">species</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">],</span> <span class="n">report</span> <span class="o">=</span> <span class="n">function</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<p>The parameters are the following:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">nx</code> - Number of grid cells to use</li>
+  <li><code class="language-plaintext highlighter-rouge">box</code>- Simulation box (phyiscal) size, in simulation units</li>
+  <li><code class="language-plaintext highlighter-rouge">dt</code> - Simulation time step, in simulation units</li>
+  <li><code class="language-plaintext highlighter-rouge">species</code> (optional) - List of particle species to use in the simulation</li>
+  <li><code class="language-plaintext highlighter-rouge">report</code> (optional) - Python function to call at every time-step when using the <code class="language-plaintext highlighter-rouge">run()</code> method.</li>
+</ul>
+
+<p>The input parameters must define the number of grid points in each direction of the simulation grid, and the physical dimensions (in simulation units) of this box. These dimensions are measured from the lower boundary of the first cell to the upper boundary of the last cell. The input parameters must also define the time step (in simulation units)</p>
+
+<h3 id="example">Example</h3>
+
+<p>The following example sets the minimal parameters for a 2D ZPIC simulation with no particles:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">em2d</span>
+
+<span class="n">nx</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>          <span class="c1"># 100 x 100 grid
+</span><span class="n">box</span> <span class="o">=</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">]</span>      <span class="c1"># 10.0 x 10.0 simulation box
+</span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.07</span>               <span class="c1"># 0.07 time step
+</span>
+<span class="n">sim</span> <span class="o">=</span> <span class="n">em2d</span><span class="p">.</span><span class="n">Simulation</span><span class="p">(</span> <span class="n">nx</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">dt</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="adding-particles">Adding particles</h2>
+
+<p>Adding particle species to the simulation is done using the <code class="language-plaintext highlighter-rouge">species</code> keyword of the <code class="language-plaintext highlighter-rouge">Simulation</code> class. Users may define an an arbitrary number of particle species, defining the required plasma properties, such as density, temperature, fluid velocity, etc. See the <a href="particles">particles</a> section for details.</p>
+
+<p>The following example initializes a 1D simulation with a warm plasma:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">em1ds</span>
+
+<span class="n">plasma</span> <span class="o">=</span> <span class="n">em1ds</span><span class="p">.</span><span class="n">Species</span><span class="p">(</span><span class="s">"plasma"</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">uth</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">sim</span> <span class="o">=</span> <span class="n">em1ds</span><span class="p">.</span><span class="n">Simulation</span><span class="p">(</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">species</span> <span class="o">=</span> <span class="n">plasma</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="running-the-simulation">Running the simulation</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">Simulation</code> class provides 2 methods for advancing the simulation in time:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">run(tmax)</code> - Advances ths simulation up to time <code class="language-plaintext highlighter-rouge">tmax</code>. If the simulation is already at <code class="language-plaintext highlighter-rouge">tmax</code> or later a warning message is issued. If the user specified a <code class="language-plaintext highlighter-rouge">report</code> function when creating the simulation object, this function will be called once for every time step, mimicking the behaviour of the C codes.</li>
+  <li><code class="language-plaintext highlighter-rouge">iter()</code> - Advances the simulation 1 iteration. This gives more control over the simulation, giving access to simulation data at every time-step, and allowing for additional actions to be performed.</li>
+</ul>
+
+<p>The 2 following examples run the simulation up to <code class="language-plaintext highlighter-rouge">t = 10.0</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">em1ds</span>
+
+<span class="n">sim</span> <span class="o">=</span> <span class="n">em1ds</span><span class="p">.</span><span class="n">Simulation</span><span class="p">(</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">0.1</span> <span class="p">)</span>
+
+<span class="c1"># Option 1 - use the run() method
+# sim.run(10.0)
+</span>
+<span class="c1"># Option 2 - use the iter() method
+</span><span class="k">while</span> <span class="n">sim</span><span class="p">.</span><span class="n">t</span> <span class="o">&lt;</span> <span class="mf">10.0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'n = {:d}, t = {:g}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">sim</span><span class="p">.</span><span class="n">n</span><span class="p">,</span><span class="n">sim</span><span class="p">.</span><span class="n">t</span><span class="p">)</span> <span class="p">)</span>
+    <span class="n">sim</span><span class="p">.</span><span class="nb">iter</span><span class="p">()</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 zpic@edu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

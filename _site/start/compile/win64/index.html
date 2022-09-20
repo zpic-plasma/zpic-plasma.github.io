@@ -1,0 +1,544 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Compiling ZPIC for Windows (MSL) - zpic@edu</title>
+<meta name="description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="zpic@edu">
+<meta property="og:title" content="Compiling ZPIC for Windows (MSL)">
+<meta property="og:url" content="http://localhost:4000/start/compile/win64/">
+
+
+  <meta property="og:description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/start/compile/win64/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+
+
+
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          zpic@edu
+          <span class="site-subtitle">PIC codes for plasma physics education</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About ZPIC</a>
+            </li><li class="masthead__menu-item">
+              <a href="/start">Getting started</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/examples">Examples</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000//" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/start" itemprop="item"><span itemprop="name">Start</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/compile" itemprop="item"><span itemprop="name">Compile</span></a>
+          <meta itemprop="position" content="3" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Compiling ZPIC for Windows (MSL)</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/start"><span class="nav__sub-title">Getting started</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/start/docker">Running a Docker image</a></li>
+          
+            <li><a href="/start/download">Download ZPIC</a></li>
+          
+            <li><a href="/start/compile">Compiling the code</a></li>
+          
+            <li><a href="/start/compile/macosx">- Mac OS X</a></li>
+          
+            <li><a href="/start/compile/linux">- Linux</a></li>
+          
+            <li><a href="/start/compile/win64">- Windows (WSL)</a></li>
+          
+            <li><a href="/start/compile/msys2">- Windows (MSYS2)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/python"><span class="nav__sub-title">Using ZPIC with Python</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/python/start">Getting started with Python</a></li>
+          
+            <li><a href="/documentation/python/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/python/data">Simulation data</a></li>
+          
+            <li><a href="/documentation/python/save">Saving output</a></li>
+          
+            <li><a href="/documentation/python/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/python/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/python/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/python/eminit">Initial EM fields</a></li>
+          
+            <li><a href="/documentation/python/emext">External EM fields</a></li>
+          
+            <li><a href="/documentation/python/spectralsolver">Spectral EM field solver</a></li>
+          
+            <li><a href="/documentation/python/api">Python API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/c"><span class="nav__sub-title">Using ZPIC with C</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/c/start">Getting started with C</a></li>
+          
+            <li><a href="/documentation/c/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/c/diag">Simulation diagnostics</a></li>
+          
+            <li><a href="/documentation/c/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/c/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/c/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/c/api">C API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/examples"><span class="nav__sub-title">Examples</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/examples/#tutorials">Tutorial</a></li>
+          
+            <li><a href="/examples/#classroom-examples">Classroom examples</a></li>
+          
+            <li><a href="/examples/#landmark-papers">Landmark papers</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Compiling ZPIC for Windows (MSL)">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Compiling ZPIC for Windows (MSL)
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Compiling for Windows (MSL)</h4></header>
+              <ul class="toc__menu"><li><a href="#zpic-on-windows-using-wsl">ZPIC on Windows using WSL</a></li><li><a href="#installing-the-windows-subsystem-for-linux--ubuntu">Installing the Windows Subsystem for Linux + Ubuntu</a><ul><li><a href="#initial-configuration">Initial Configuration</a></li><li><a href="#optional-jupyter-extensions">Optional Jupyter extensions</a></li></ul></li><li><a href="#compiling-the-code">Compiling the code</a><ul><li><a href="#cloning-downloading-zpic">Cloning (Downloading) ZPIC</a></li><li><a href="#individual-c-code-versions">Individual C code versions</a></li><li><a href="#python-modules">Python modules</a></li></ul></li><li><a href="#launching-zpic-notebooks">Launching ZPIC notebooks</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="zpic-on-windows-using-wsl">ZPIC on Windows using WSL</h2>
+
+<p>The <a href="https://docs.microsoft.com/en-us/windows/wsl/about">Windows Subsystem for Linux</a> (WSL) lets developers run a GNU/Linux environment directly on Windows, unmodified, without the overhead of a traditional virtual machine or dual-boot setup. In this guide we will be using the Ubuntu Linux distribution that is installed with WSL. Other distributions are also known to work.</p>
+
+<p>The instructions provided here were tested with Microsoft <strong>Windows 10 Pro</strong>, Version <strong>20H2</strong> (OS Build 19042.1706) on June 2022.</p>
+
+<h2 id="installing-the-windows-subsystem-for-linux--ubuntu">Installing the Windows Subsystem for Linux + Ubuntu</h2>
+
+<p>To install WSL + Ubuntu you should just follow the instructions provided by Microsoft here:</p>
+
+<p><a href="https://docs.microsoft.com/en-us/windows/wsl/install">https://docs.microsoft.com/en-us/windows/wsl/install</a></p>
+
+<p>We also recommend that you install the <a href="https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701">Windows Terminal</a> application from the Microsoft Store and use it as your terminal application.</p>
+
+<h3 id="initial-configuration">Initial Configuration</h3>
+
+<p>Once you have installed WSL + Ubuntu and the Windows Terminal you can simply open the latter and choose “Ubuntu”. If you have not done so already begin by updating all your software packages:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get update
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get upgrade
+</code></pre></div></div>
+
+<p>After updating all your software packages python should be (as of June 2022) up to version 3.8.10, which is fine. We just need some additional dependencies:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>build-essential ffmpeg python3-pip
+</code></pre></div></div>
+
+<p>Now we need to add some additional python packages. We will be doing it using <code class="language-plaintext highlighter-rouge">pip3</code> (that we just installed):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>pip3 <span class="nb">install </span>Jinja2 ipython scipy matplotlib jupyterlab Cython ipympl
+</code></pre></div></div>
+
+<p><em>Note</em>: Although it is possible to run the above <code class="language-plaintext highlighter-rouge">pip3</code> command without <code class="language-plaintext highlighter-rouge">sudo</code> this would install the packages in a local user directory not in the path.</p>
+
+<p>At this point you should be ready to launch Jupyter:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>jupyter lab
+<span class="o">[</span>I 2022-06-07 11:38:12.245 ServerApp] jupyterlab | extension was successfully linked.
+<span class="o">[</span>I 2022-06-07 11:38:12.255 ServerApp] nbclassic | extension was successfully linked.
+<span class="o">(</span>...<span class="o">)</span>
+</code></pre></div></div>
+
+<p>If you get an error like this:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(...)
+  File "/usr/lib/python3/dist-packages/jinja2/utils.py", line 656, in &lt;module&gt;
+    from markupsafe import Markup, escape, soft_unicode
+ImportError: cannot import name 'soft_unicode' from 'markupsafe' (/usr/local/lib/python3.8/dist-packages/markupsafe/__init__.py)
+</code></pre></div></div>
+
+<p>You need to update your Jinja2 library like this:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>pip3 <span class="nb">install</span> <span class="nt">-U</span> Jinja2
+</code></pre></div></div>
+
+<p>And things should be fine.</p>
+
+<h3 id="optional-jupyter-extensions">Optional Jupyter extensions</h3>
+
+<p>If you want to use (<code class="language-plaintext highlighter-rouge">ipywidgets</code>) HTML widgets inside your notebooks you will also need to install a recent version of Node.js (≥ 12.0). With the official Ubuntu 20.04 package repositories you’ll get Node.js 10.x, so we need to do a little more work:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">-sL</span> https://deb.nodesource.com/setup_12.x | <span class="nb">sudo</span> <span class="nt">-E</span> bash -
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> nodejs
+</code></pre></div></div>
+
+<p>This will update the package repositories to look for Node.js 12.x and install it. You should now be able to install the required additional Jupyter extensions:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>jupyter labextension <span class="nb">install</span> @jupyter-widgets/jupyterlab-manager jupyter-matplotlib
+</code></pre></div></div>
+
+<h2 id="compiling-the-code">Compiling the code</h2>
+
+<h3 id="cloning-downloading-zpic">Cloning (Downloading) ZPIC</h3>
+
+<p>The Ubuntu distribution comes with <code class="language-plaintext highlighter-rouge">git</code> pre-installed so if you have not done so already, you can clone ZPIC from GitHub by doing:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>zpic
+<span class="nv">$ </span><span class="nb">cd </span>zpic
+<span class="nv">$ </span>git clone https://github.com/ricardo-fonseca/zpic.git <span class="nb">.</span>
+</code></pre></div></div>
+
+<h3 id="individual-c-code-versions">Individual C code versions</h3>
+
+<p>Each of the <code class="language-plaintext highlighter-rouge">C</code> code versions, available in different directories, is a complete standalone version, and can be compiled separately. Each of these directories contains a local <code class="language-plaintext highlighter-rouge">Makefile</code> that you can edit if you need to change any of the compiler parameters (or want to specify a different compiler).</p>
+
+<p>To compile any of the code versions, just open a terminal window and navigate to the directory with the code that you want to use. You can then compile the code using the <code class="language-plaintext highlighter-rouge">make</code> command. You can clean up all the generated object files and executable by issuing the <code class="language-plaintext highlighter-rouge">make clean</code> command.</p>
+
+<p>In this example we will compile the <code class="language-plaintext highlighter-rouge">em2d</code> code. We assume you have the code on inside a directory named <code class="language-plaintext highlighter-rouge">source</code> in your home folder. Just go into that directory and run <code class="language-plaintext highlighter-rouge">make</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd source</span>/zpic/em2d
+<span class="nv">$ </span>make
+gcc <span class="nt">-c</span> <span class="nt">-Ofast</span> <span class="nt">-std</span><span class="o">=</span>c99 <span class="nt">-pedantic</span> current.c <span class="nt">-o</span> current.o
+gcc <span class="nt">-c</span> <span class="nt">-Ofast</span> <span class="nt">-std</span><span class="o">=</span>c99 <span class="nt">-pedantic</span> emf.c <span class="nt">-o</span> emf.o
+<span class="o">(</span>...<span class="o">)</span>
+gcc <span class="nt">-Ofast</span> <span class="nt">-std</span><span class="o">=</span>c99 <span class="nt">-pedantic</span>  current.o emf.o particles.o random.o timer.o main.o simulation.o zdf.o <span class="nt">-o</span> zpic
+<span class="nv">$ </span>
+</code></pre></div></div>
+
+<p>Once compilation has finished there will be a <code class="language-plaintext highlighter-rouge">zpic</code> binary file in the same directory that you can run.</p>
+
+<h3 id="python-modules">Python modules</h3>
+
+<p>To compile the python modules navigate to the <code class="language-plaintext highlighter-rouge">python</code> directory on the ZPIC sourcetree and run <code class="language-plaintext highlighter-rouge">make</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd source</span>/zpic/python
+<span class="nv">$ </span>make
+<span class="nb">cd source</span> <span class="o">&amp;&amp;</span> make
+make[1]: Entering directory <span class="s1">'/home/zamb/zpic/python/source'</span>
+python3 setup.py build_ext <span class="nt">--build-lib</span><span class="o">=</span>../lib
+Compiling em1d.pyx because it changed.
+Compiling em2d.pyx because it changed.
+<span class="o">(</span>...<span class="o">)</span>
+x86_64-linux-gnu-gcc <span class="nt">-pthread</span> <span class="nt">-shared</span> <span class="nt">-Wl</span>,-O1 <span class="nt">-Wl</span>,-Bsymbolic-functions <span class="nt">-Wl</span>,-Bsymbolic-functions <span class="nt">-Wl</span>,-z,relro <span class="nt">-g</span> <span class="nt">-fwrapv</span> <span class="nt">-O2</span> <span class="nt">-Wl</span>,-Bsymbolic-functions <span class="nt">-Wl</span>,-z,relro <span class="nt">-g</span> <span class="nt">-fwrapv</span> <span class="nt">-O2</span> <span class="nt">-g</span> <span class="nt">-fstack-protector-strong</span> <span class="nt">-Wformat</span> <span class="nt">-Werror</span><span class="o">=</span>format-security <span class="nt">-Wdate-time</span> <span class="nt">-D_FORTIFY_SOURCE</span><span class="o">=</span>2 build/temp.linux-x86_64-3.8/em2ds.o build/temp.linux-x86_64-3.8/home/zamb/zpic/em2ds/charge.o build/temp.linux-x86_64-3.8/home/zamb/zpic/em2ds/current.o build/temp.linux-x86_64-3.8/home/zamb/zpic/em2ds/emf.o build/temp.linux-x86_64-3.8/home/zamb/zpic/em2ds/fft.o build/temp.linux-x86_64-3.8/home/zamb/zpic/em2ds/filter.o build/temp.linux-x86_64-3.8/home/zamb/zpic/em2ds/grid2d.o build/temp.linux-x86_64-3.8/home/zamb/zpic/em2ds/particles.o build/temp.linux-x86_64-3.8/home/zamb/zpic/em2ds/random.o build/temp.linux-x86_64-3.8/home/zamb/zpic/em2ds/simulation.o build/temp.linux-x86_64-3.8/home/zamb/zpic/em2ds/timer.o build/temp.linux-x86_64-3.8/home/zamb/zpic/em2ds/zdf.o <span class="nt">-o</span> ../lib/em2ds.cpython-38-x86_64-linux-gnu.so
+make[1]: Leaving directory <span class="s1">'/home/zamb/zpic/python/source'</span>
+<span class="nv">$ </span>
+</code></pre></div></div>
+
+<p>Libraries will be created in the <code class="language-plaintext highlighter-rouge">python/lib</code> directory, you need to add that library to your Python environment so you can use the modules.</p>
+
+<h2 id="launching-zpic-notebooks">Launching ZPIC notebooks</h2>
+
+<p>Once you have compiled the Python modules, you shoud be able to launch the ZPIC notebooks by navigating into the <code class="language-plaintext highlighter-rouge">notebooks</code> directory and launching Jupyter:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd source</span>/zpic/python/notebooks
+<span class="nv">$ </span>jupyter lab
+<span class="o">[</span>I 2022-06-07 14:05:36.220 ServerApp] jupyterlab | extension was successfully linked.
+<span class="o">(</span>...<span class="o">)</span>
+<span class="o">[</span>I 2022-06-07 14:05:36.673 ServerApp] Jupyter Server 1.13.3 is running at:
+<span class="o">[</span>I 2022-06-07 14:05:36.673 ServerApp] http://localhost:8888/lab?token<span class="o">=</span>a13a9886d3948335ac4a920cdbd24d9c498d9b9f493c700a
+<span class="o">(</span>...<span class="o">)</span>
+</code></pre></div></div>
+
+<p>You will probably need to copy the URL shown in your terminal (including the token) into the URL bar of any browser.</p>
+
+<p>Be sure to open the <code class="language-plaintext highlighter-rouge">README.ipynb</code> file first.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 zpic@edu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

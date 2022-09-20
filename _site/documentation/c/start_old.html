@@ -1,0 +1,585 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Getting started in C - zpic@edu</title>
+<meta name="description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="zpic@edu">
+<meta property="og:title" content="Getting started in C">
+<meta property="og:url" content="http://localhost:4000/documentation/c/start_old">
+
+
+  <meta property="og:description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/documentation/c/start_old">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+
+
+
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          zpic@edu
+          <span class="site-subtitle">PIC codes for plasma physics education</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About ZPIC</a>
+            </li><li class="masthead__menu-item">
+              <a href="/start">Getting started</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/examples">Examples</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000//" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/documentation" itemprop="item"><span itemprop="name">Documentation</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/c" itemprop="item"><span itemprop="name">C</span></a>
+          <meta itemprop="position" content="3" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Getting started in C</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Getting started in C">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Getting started in C
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#compiling-the-code">Compiling the code</a></li><li><a href="#setting-the-simulation-parameters">Setting the simulation parameters</a></li><li><a href="#simulation-box">Simulation box</a></li><li><a href="#time">Time</a></li><li><a href="#diagnostic-frequency">Diagnostic frequency</a></li><li><a href="#particles">Particles</a></li><li><a href="#adding-laser-pulses">Adding laser pulses</a></li><li><a href="#moving-simulation-window">Moving simulation window</a></li><li><a href="#neutralizing-backgound">Neutralizing backgound</a><ul><li><a href="#finite-difference-models">Finite difference models</a></li><li><a href="#spectral-models">Spectral models</a></li></ul></li><li><a href="#electric-current-smoothing">Electric Current Smoothing</a></li><li><a href="#electromagnetic-field-diagnostics">Electromagnetic Field Diagnostics</a></li><li><a href="#electric-current-diagnostics">Electric Current Diagnostics</a></li><li><a href="#electric-charge-diagnostics-spectral-codes-only">Electric Charge Diagnostics (spectral codes only)</a></li><li><a href="#particle-diagnostics">Particle diagnostics</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="compiling-the-code">Compiling the code</h2>
+
+<p>Each top level directory (em1d, em2d, etc.) has a self-contained version of the code. You can just open a terminal, navigate into into the required directory and execute <code class="language-plaintext highlighter-rouge">make</code>. No additional / external libraries are required.</p>
+
+<p>You can find detailed instructions for Windows / Mac OS X / Linux in the <a href="/compile">Compiling</a> page, including instructions on how to get a C99 compiler for your system.</p>
+
+<h2 id="setting-the-simulation-parameters">Setting the simulation parameters</h2>
+<p>Simulation parameters are defined using a C file that is included in the <code class="language-plaintext highlighter-rouge">main.c</code> file of each code. For example, to launch the Two-Stream instability simulation on the 1D electrostatic code, you need to edit the <code class="language-plaintext highlighter-rouge">es1d/main.c</code> file and add:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Include Simulation parameters here</span>
+<span class="cp">#include "input/twostream.c"
+</span></code></pre></div></div>
+
+<p>This file must define two functions:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">sim_init()</code>	 - Initialization of the simulation</li>
+  <li><code class="language-plaintext highlighter-rouge">sim_report()</code> - Simulation diagnostics</li>
+</ul>
+
+<p>Please check the examples available on the <code class="language-plaintext highlighter-rouge">input</code> directories for each code.</p>
+
+<h1 id="initializing-simulation-parameters">Initializing Simulation Parameters</h1>
+
+<p>Initializing a ZPIC simulation requires defining a set of numerical parameters regarding the simulation spatial / temporal domain, the simulation particles. Additionally, the user may optionally specify additional parameters, such as laser pulses.</p>
+
+<p>These parameters are defined in the <code class="language-plaintext highlighter-rouge">sim_init()</code> function in the input file. This function <em>must</em> call the <code class="language-plaintext highlighter-rouge">sim_new()</code> function to initialize the <em>sim</em> (simulation) object.</p>
+
+<p>The following example sets the minimal parameters for a 2D ZPIC simulation (with no particles):</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">sim_init</span><span class="p">(</span> <span class="n">t_simulation</span><span class="o">*</span> <span class="n">sim</span> <span class="p">){</span>
+
+	<span class="c1">// Simulation box</span>
+	<span class="kt">int</span>   <span class="n">nx</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="o">=</span> <span class="p">{</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span> <span class="p">};</span>
+	<span class="kt">float</span> <span class="n">box</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span> <span class="p">};</span>
+
+	<span class="c1">// Time step</span>
+	<span class="kt">float</span> <span class="n">dt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mo">07</span><span class="p">;</span>
+	<span class="kt">float</span> <span class="n">tmax</span> <span class="o">=</span> <span class="mi">70</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+
+	<span class="c1">// Initialize Simulation data</span>
+	<span class="n">sim_new</span><span class="p">(</span> <span class="n">sim</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Please check the <code class="language-plaintext highlighter-rouge">input</code> directories under each code for several complete examples.</p>
+
+<h2 id="simulation-box">Simulation box</h2>
+
+<p>The input parameters must define the number of grid points in each direction of the simulation grid, and the physical dimensions (in simulation units) of this box. These dimensions are measured from the lower boundary of the first cell to the upper boundary of the last cell.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">// Simulation box</span>
+	<span class="kt">int</span>   <span class="n">nx</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="o">=</span> <span class="p">{</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span> <span class="p">};</span>
+	<span class="kt">float</span> <span class="n">box</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span> <span class="p">};</span>
+
+	<span class="c1">// Initialize Simulation data</span>
+	<span class="n">sim_new</span><span class="p">(</span> <span class="n">sim</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="p">...</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="time">Time</h2>
+
+<p>The input parameters must define the simulation time step and the total simulation time (in simulation units)</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">// Time step</span>
+	<span class="kt">float</span> <span class="n">dt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mo">07</span><span class="p">;</span>
+	<span class="kt">float</span> <span class="n">tmax</span> <span class="o">=</span> <span class="mi">70</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+
+	<span class="c1">// Initialize Simulation data</span>
+	<span class="n">sim_new</span><span class="p">(</span> <span class="n">sim</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="p">...</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<p>The code will check if the time step is compatible with the specified resolution.</p>
+
+<h2 id="diagnostic-frequency">Diagnostic frequency</h2>
+
+<p>The input parameters must also define the frequency at which the <code class="language-plaintext highlighter-rouge">sim_report()</code> function is called from the main loop. For this purpose the user specifies the number of iterations between these function calls:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">// Diagnostic frequency - call sim_report() every 50 iterations</span>
+	<span class="kt">int</span> <span class="n">ndump</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+
+	<span class="c1">// Initialize Simulation data</span>
+	<span class="n">sim_new</span><span class="p">(</span> <span class="n">sim</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">ndump</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<p>Setting this parameter to 0 disables all diagnostics. For details on simulation diagnostics and the <code class="language-plaintext highlighter-rouge">sim_report()</code> function see the <a href="#simulation_diagnostics">Simulation Diagnostics</a> section below.</p>
+
+<h2 id="particles">Particles</h2>
+
+<p>The input parameters may define an arbitrary number of particle species, defining the required plasma properties, such as density, temperature, fluid velocity, etc. See the <a href="particles">Particle injection</a> page for details.</p>
+
+<h2 id="adding-laser-pulses">Adding laser pulses</h2>
+
+<p>The input parameters may optionally define an arbitrary number of laser pulses to be added to the simulation. See the <a href="laser">Laser pulses</a> page for details.</p>
+
+<h2 id="moving-simulation-window">Moving simulation window</h2>
+
+<p>The finite difference models can be run using a moving simulation window that moves at the speed of light. Please note that simulation is done in the lab reference frame; it is the simulation box that moves and follows relevant phenomena moving at, or close to, this speed, such as laser pulses or relativistic particle beams.</p>
+
+<p>Using a moving window requires calling the <code class="language-plaintext highlighter-rouge">sim_set_moving_window()</code> routine:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">sim_set_moving_window</span><span class="p">(</span> <span class="n">t_simulation</span><span class="o">*</span> <span class="n">sim</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<p>This routine should be called inside <code class="language-plaintext highlighter-rouge">sim_init()</code>, somewhere after the call to <code class="language-plaintext highlighter-rouge">sim_new()</code>. Spectral models currently do not support this feature.</p>
+
+<p>See for example the Laser Wakefield input files (e.g. <a href="../em1d/input/lwfa.c">lwfa.c</a>).</p>
+
+<h2 id="neutralizing-backgound">Neutralizing backgound</h2>
+
+<h3 id="finite-difference-models">Finite difference models</h3>
+
+<p>When using the finite difference models, the code will always behave as if the total charge density was initially zero, even when this is not the case. This effect is generally described as having the code add a neutralizing background; however, for finite difference models, this is simply a consequence of the way the field solver is implemented, and no actual addition takes place. So to model a plasma with a fixed ion background, it is enough to add the electron species, and no additional particle species are required.</p>
+
+<h3 id="spectral-models">Spectral models</h3>
+
+<p>For the spectral models this is no longer the case, and if required a neutralizing background must be explicitly added. This is achieved through a call to the <code class="language-plaintext highlighter-rouge">sim_add_neutral_bkg()</code> routine:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">sim_add_neutral_bkg</span><span class="p">(</span> <span class="n">t_simulation</span><span class="o">*</span> <span class="n">sim</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<p>This routine should be called inside <code class="language-plaintext highlighter-rouge">sim_init()</code>, somewhere after the call to <code class="language-plaintext highlighter-rouge">sim_new()</code>.</p>
+
+<p>The code will calculate the charge density resulting from the initial charge distribution of the multiple species and store that value on an auxiliary buffer. This buffer will then be subtracted from the simulation charge density calculated at each time step, before calling the field advance.</p>
+
+<p>For an example, see the Laser Wakefield example for the 1D electromagnetic spectral code: <a href="../em1ds/input/lwfa.c">lwfa.c</a>)</p>
+
+<h2 id="electric-current-smoothing">Electric Current Smoothing</h2>
+
+<p>For the finite difference models, the input parameters may also optionally define some smoothing (filtering) parameters to be applied to the electric current. See the</p>
+
+<p>following the deposition of this quantity from particle motion. This is achieved through a call to the <code class="language-plaintext highlighter-rouge">sim_set_smooth()</code> routine:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">sim_set_smooth</span><span class="p">(</span> <span class="n">t_simulation</span><span class="o">*</span> <span class="n">sim</span><span class="p">,</span> <span class="n">t_smooth</span><span class="o">*</span> <span class="n">smooth</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This routine should be called inside <code class="language-plaintext highlighter-rouge">sim_init()</code>, somewhere after the call to <code class="language-plaintext highlighter-rouge">sim_new()</code>. Smoothing parameters are defined in the supplied <em>t_smooth</em> structure.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Smoothing parameters</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>xtype</td>
+      <td>Smoothing type along x. Must be one of <code class="language-plaintext highlighter-rouge">none</code>, <code class="language-plaintext highlighter-rouge">binomial</code> or <code class="language-plaintext highlighter-rouge">compensated</code></td>
+    </tr>
+    <tr>
+      <td>xlevel</td>
+      <td>Number of passes of the smoothing kernel along x</td>
+    </tr>
+    <tr>
+      <td>ytype</td>
+      <td>(2D only) Same as xtype for the y direction</td>
+    </tr>
+    <tr>
+      <td>ylevel</td>
+      <td>(2D only) Same as xlevel for the y direction</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For <code class="language-plaintext highlighter-rouge">binomial</code> smoothing, filtering is performed through a convolution of the grid data with a [1,2,1] kernel. This operation is repeated <em>n</em> times, where <em>n</em> is defined by the <code class="language-plaintext highlighter-rouge">xlevel | ylevel</code> parameters.</p>
+
+<p>For <code class="language-plaintext highlighter-rouge">compensated</code> smoothing, the code will first apply <code class="language-plaintext highlighter-rouge">binomial</code> smoothing as described above, and will perform an additional pass with a specially calculated kernel that ensures that the filter transfer function near <em>k</em>=0 will be on the order of $1 + O(k^3)$, zeroing out $k^2$ dependencies. In pratice this leads to a filter that is flatter near <em>k</em>=0 and has a sharper drop near the cutoff frequency.</p>
+
+<h1 id="simulation-diagnostics">Simulation Diagnostics</h1>
+
+<p>Simulation diagnostics are defined in the <code class="language-plaintext highlighter-rouge">sim_report()</code> function of the input file. This function will be called from the simulation main loop at a frequency defined in the <code class="language-plaintext highlighter-rouge">sim_init()</code> function described above. All input files must define this function.</p>
+
+<p>Here’s an example from a 2D Weibel instability simulation:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">sim_report</span><span class="p">(</span> <span class="n">t_simulation</span><span class="o">*</span> <span class="n">sim</span> <span class="p">){</span>
+	<span class="c1">// Bx, By</span>
+	<span class="n">emf_report</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">sim</span> <span class="o">-&gt;</span> <span class="n">emf</span><span class="p">,</span> <span class="n">BFLD</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
+	<span class="n">emf_report</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">sim</span> <span class="o">-&gt;</span> <span class="n">emf</span><span class="p">,</span> <span class="n">BFLD</span><span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
+
+	<span class="c1">// Jz</span>
+	<span class="n">current_report</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">sim</span> <span class="o">-&gt;</span> <span class="n">current</span><span class="p">,</span> <span class="mi">2</span> <span class="p">);</span>
+
+	<span class="c1">// electron and positron density</span>
+	<span class="n">spec_report</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">sim</span> <span class="o">-&gt;</span> <span class="n">species</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">CHARGE</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span> <span class="p">);</span>
+	<span class="n">spec_report</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">sim</span> <span class="o">-&gt;</span> <span class="n">species</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">CHARGE</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span> <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="electromagnetic-field-diagnostics">Electromagnetic Field Diagnostics</h2>
+
+<p>Electromagnetic field diagnostics are done through a call to the <code class="language-plaintext highlighter-rouge">emf_report()</code> function:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">emf_report</span><span class="p">(</span> <span class="n">t_emf</span> <span class="o">*</span><span class="n">emf</span><span class="p">,</span> <span class="kt">char</span> <span class="n">field</span><span class="p">,</span> <span class="kt">char</span> <span class="n">fc</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<p>This function may be called multiple times inside <code class="language-plaintext highlighter-rouge">sim_report()</code> with the following parameters:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>EMF report parameters</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>field</td>
+      <td>Field to save. Must be one of <code class="language-plaintext highlighter-rouge">BFLD</code> or <code class="language-plaintext highlighter-rouge">EFLD</code></td>
+    </tr>
+    <tr>
+      <td>fc</td>
+      <td>Field component to save. Must be one of 0(x), 1(y), or 2(z).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="electric-current-diagnostics">Electric Current Diagnostics</h2>
+
+<p>Electric Current diagnostics are done through a call to the <code class="language-plaintext highlighter-rouge">current_report()</code> function:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">current_report</span><span class="p">(</span> <span class="k">const</span> <span class="n">t_current</span> <span class="o">*</span><span class="n">emf</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">field</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">fc</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<p>This function may be called multiple times inside <code class="language-plaintext highlighter-rouge">sim_report()</code> with the following parameters:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Current report parameters</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>fc</td>
+      <td>Electric current component to save. Must be one of 0(x), 1(y), or 2(z).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="electric-charge-diagnostics-spectral-codes-only">Electric Charge Diagnostics (spectral codes only)</h2>
+
+<p>Global electric Charge diagnostics are done through a call to the <code class="language-plaintext highlighter-rouge">charge_report()</code> function:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">charge_report</span><span class="p">(</span> <span class="n">t_current</span> <span class="o">*</span><span class="n">charge</span> <span class="p">)</span>
+</code></pre></div></div>
+<p>This function is only available in spectral code (es1d, em1ds, em2ds) as this quantity is not required for the finit difference models.</p>
+
+<p>This function should only be called once inside <code class="language-plaintext highlighter-rouge">sim_report()</code>.</p>
+
+<h2 id="particle-diagnostics">Particle diagnostics</h2>
+
+<p>Particle species diagnostics are done through a call to the <code class="language-plaintext highlighter-rouge">spec_report()</code> function:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">spec_report</span><span class="p">(</span> <span class="n">t_species</span> <span class="o">*</span><span class="n">spec</span><span class="p">,</span> <span class="kt">int</span> <span class="n">rep_type</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pha_nx</span><span class="p">[],</span> <span class="kt">float</span> <span class="n">pha_range</span><span class="p">[][</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<p>This function may be called multiple times inside <code class="language-plaintext highlighter-rouge">sim_report()</code> with the following parameters:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>EMF report parameters</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>rep_type</td>
+      <td>Type of diagnostic. Can be set to <code class="language-plaintext highlighter-rouge">CHARGE</code>, <code class="language-plaintext highlighter-rouge">PARTICLES</code>, or the <code class="language-plaintext highlighter-rouge">PHASESPACE()</code> macro</td>
+    </tr>
+    <tr>
+      <td>pha_nx</td>
+      <td>Dimensions (number of grid points) of the grid for phasespace density diagnostics</td>
+    </tr>
+    <tr>
+      <td>pha_range</td>
+      <td>Physical grid size for phasespace density diagnostics</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This function is meant to be called per simulation species (set by the <em>spec</em> parameter), and acting only on the specified species.</p>
+
+<p>The following types of reports are available:</p>
+<ul>
+  <li><strong>CHARGE</strong> - Saves the charge density of the species. This density is calculated in the simulation grid. The parameters <em>pha_nx</em> and <em>pha_range</em> should be set to <code class="language-plaintext highlighter-rouge">NULL</code>.</li>
+  <li><strong>PARTICLES</strong> -  Saves the complete particle dataset: position, (generalized) velocity, charge for all particles in the species. The parameters <em>pha_nx</em> and <em>pha_range</em> should be set to <code class="language-plaintext highlighter-rouge">NULL</code>.</li>
+  <li><strong>PHASESPACE(ax1,ax2)</strong> - Saves the specified phasespace density for this plot. The phasespace parameters are controlled through the following parameters:
+    <ul>
+      <li><em>ax1</em>, <em>ax2</em> - Define the phasespace axis. Can be set to <code class="language-plaintext highlighter-rouge">X1</code>, <code class="language-plaintext highlighter-rouge">X2</code> (2D only), <code class="language-plaintext highlighter-rouge">U1</code>, <code class="language-plaintext highlighter-rouge">U2</code>, <code class="language-plaintext highlighter-rouge">U3</code> (EM codes) or <code class="language-plaintext highlighter-rouge">V1</code> (ES codes).</li>
+      <li><em>pha_nx</em> - Defines the number of grid points in each direction for the phasespace density grid.</li>
+      <li><em>pha_range</em> - Defines the physical limits (in simulation units) of the phasespace density grid in each direction.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>In the following example, a simulation with two species saves diagnostic information for the charge density and $(x_1,u_1)$ phasespace density of species 0, and the complete particle dataset for species 1:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">sim_report</span><span class="p">(</span> <span class="n">t_simulation</span><span class="o">*</span> <span class="n">sim</span> <span class="p">){</span>
+
+    <span class="n">spec_report</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">sim</span> <span class="o">-&gt;</span> <span class="n">species</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">CHARGE</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span> <span class="p">);</span>
+    <span class="n">spec_report</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">sim</span> <span class="o">-&gt;</span> <span class="n">species</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">PARTICLES</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span> <span class="p">);</span>
+
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">pha_nx</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1024</span><span class="p">,</span><span class="mi">512</span><span class="p">};</span>
+    <span class="k">const</span> <span class="kt">float</span> <span class="n">pha_range</span><span class="p">[][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">{</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">.</span><span class="mi">0</span><span class="p">},</span> <span class="p">{</span><span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="o">+</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">}</span> <span class="p">};</span>
+    <span class="n">spec_report</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">sim</span> <span class="o">-&gt;</span> <span class="n">species</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">PHASESPACE</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span><span class="n">U1</span><span class="p">),</span> <span class="n">pha_nx</span><span class="p">,</span> <span class="n">pha_range</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 zpic@edu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,352 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Simulation particles - zpic@edu</title>
+<meta name="description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="zpic@edu">
+<meta property="og:title" content="Simulation particles">
+<meta property="og:url" content="http://localhost:4000/about/particles">
+
+
+  <meta property="og:description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/about/particles">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+
+<!-- for mathjax support -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          zpic@edu
+          <span class="site-subtitle">PIC codes for plasma physics education</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About ZPIC</a>
+            </li><li class="masthead__menu-item">
+              <a href="/start">Getting started</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/examples">Examples</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000//" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/about" itemprop="item"><span itemprop="name">About</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Simulation particles</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/about"><span class="nav__sub-title">About</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/about/pic">The PIC algorithm</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/about/implementation"><span class="nav__sub-title">Implementation details</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/about/particles" class="active">Particles</a></li>
+          
+            <li><a href="/about/deposit">Current/charge deposit</a></li>
+          
+            <li><a href="/about/fields">Fields</a></li>
+          
+            <li><a href="/about/interpolation">Grid interpolation</a></li>
+          
+            <li><a href="/about/units">ZPIC Units</a></li>
+          
+            <li><a href="/about/data">Data structures</a></li>
+          
+            <li><a href="/about/timecenter">Time centering</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Simulation particles">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Simulation particles
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="particle-advance">Particle advance</h2>
+
+<p>In a PIC code, after interpolating the fields at particle positions, particle velocity and positions must then be advanced in time. In the ZPIC codes this is acomplished through a leap-frog scheme, that first advances velocity and then positions, which provides 2nd order accuracy in time. This requires that particles positions and velocities are not time-centered, with particle positions being known at time $t$, and particle velocity being known at $t−\Delta t/2$.  As a result, field quantities will also have to be known at time $t$, and the values interpolated at particle positions will be used to calculate the Lorentz force and advance particle momenta from $t− \Delta t/2$ to $t+ \Delta t/2$.</p>
+
+<p>In the ZPIC EM codes the velocity advance is done using a (relativistic) Boris pusher [Boris 1970, Birdsall and Langdon 1991]: This method considers the effects of the electric and magnetic forces separately, splitting the particle advance into electric field impulses and magnetic rotations. This allows for easy calculation of the time centered relativistic gamma factor that is not affected by the magnetic rotation but is required to calculate the magnetic force, and results in a second order accurate momentum integration. After completing this integration, the momentum is known at time $t + \Delta t/2$, which is then used to advance particle positions in time from $t$ to $t + \Delta t$.</p>
+
+<p>In the electrostatic codes the magnetic field is absent, so the velocity is straightforwardly advanced from $t− \Delta t/2$ to $t+ \Delta t/2$.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>Boris JP 1970, <em>Proceedings of the 4th Conference on the Numerical Simulation of Plasmas</em>, Naval Research Laboratory, Washington, D. C., pp. 3-67, 1970.</li>
+  <li>Birdsall C K and Langdon  A B 1991, <em>Plasma Physics via Computer Simulations</em>, IoP Publishing, Bristol, UK</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 zpic@edu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

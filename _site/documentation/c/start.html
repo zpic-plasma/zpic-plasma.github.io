@@ -1,0 +1,545 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Getting started in C - zpic@edu</title>
+<meta name="description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="zpic@edu">
+<meta property="og:title" content="Getting started in C">
+<meta property="og:url" content="http://localhost:4000/documentation/c/start">
+
+
+  <meta property="og:description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/documentation/c/start">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+
+
+
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          zpic@edu
+          <span class="site-subtitle">PIC codes for plasma physics education</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About ZPIC</a>
+            </li><li class="masthead__menu-item">
+              <a href="/start">Getting started</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/examples">Examples</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000//" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/documentation" itemprop="item"><span itemprop="name">Documentation</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/c" itemprop="item"><span itemprop="name">C</span></a>
+          <meta itemprop="position" content="3" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Getting started in C</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/start"><span class="nav__sub-title">Getting started</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/start/docker">Running a Docker image</a></li>
+          
+            <li><a href="/start/download">Download ZPIC</a></li>
+          
+            <li><a href="/start/compile">Compiling the code</a></li>
+          
+            <li><a href="/start/compile/macosx">- Mac OS X</a></li>
+          
+            <li><a href="/start/compile/linux">- Linux</a></li>
+          
+            <li><a href="/start/compile/win64">- Windows (WSL)</a></li>
+          
+            <li><a href="/start/compile/msys2">- Windows (MSYS2)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/python"><span class="nav__sub-title">Using ZPIC with Python</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/python/start">Getting started with Python</a></li>
+          
+            <li><a href="/documentation/python/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/python/data">Simulation data</a></li>
+          
+            <li><a href="/documentation/python/save">Saving output</a></li>
+          
+            <li><a href="/documentation/python/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/python/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/python/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/python/eminit">Initial EM fields</a></li>
+          
+            <li><a href="/documentation/python/emext">External EM fields</a></li>
+          
+            <li><a href="/documentation/python/spectralsolver">Spectral EM field solver</a></li>
+          
+            <li><a href="/documentation/python/api">Python API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/c"><span class="nav__sub-title">Using ZPIC with C</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/c/start" class="active">Getting started with C</a></li>
+          
+            <li><a href="/documentation/c/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/c/diag">Simulation diagnostics</a></li>
+          
+            <li><a href="/documentation/c/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/c/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/c/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/c/api">C API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/examples"><span class="nav__sub-title">Examples</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/examples/#tutorials">Tutorial</a></li>
+          
+            <li><a href="/examples/#classroom-examples">Classroom examples</a></li>
+          
+            <li><a href="/examples/#landmark-papers">Landmark papers</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Getting started in C">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Getting started in C
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#choosing-the-code-version">Choosing the code version</a></li><li><a href="#initializing-the-simulation">Initializing the simulation</a></li><li><a href="#main-simulation-parameters">Main simulation parameters</a><ul><li><a href="#simulation-grid-size-and-physical-box">Simulation grid size and physical box</a></li><li><a href="#time-step-and-total-simulation-time">Time step and total simulation time</a></li><li><a href="#diagnostic-frequency">Diagnostic frequency</a></li><li><a href="#particles">Particles</a></li></ul></li><li><a href="#running-the-code">Running the code</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="choosing-the-code-version">Choosing the code version</h2>
+
+<p>To run a ZPIC simulation in C users must first choose which code version is to be used and compile the code in the corresponding directory. Available versions are:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">em1d</code>, <code class="language-plaintext highlighter-rouge">em1ds</code> - 1D electromagnetic code using a finite difference field solver (<code class="language-plaintext highlighter-rouge">em1d</code>) or a spectral field solver (<code class="language-plaintext highlighter-rouge">em1ds</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">em2d</code>, <code class="language-plaintext highlighter-rouge">em2ds</code> - 2D electromagnetic code using a finite difference field solver (<code class="language-plaintext highlighter-rouge">em2d</code>) or a spectral field solver (<code class="language-plaintext highlighter-rouge">em2ds</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">es1d</code> - 1D electrostatic code using a spectral field solver</li>
+</ul>
+
+<p>Each top level directory (<code class="language-plaintext highlighter-rouge">em1d</code>, <code class="language-plaintext highlighter-rouge">em2d</code>, etc.) has a self-contained version of the code, with no additional dependencies. Just navigate to the required directory and run <code class="language-plaintext highlighter-rouge">make</code>. Detailed instruction on compiling the code(s) can be found in the <a href="/start/compile">Compiling</a> page.</p>
+
+<h2 id="initializing-the-simulation">Initializing the simulation</h2>
+
+<p>Simulation parameters are defined using a C file that is included in the <code class="language-plaintext highlighter-rouge">main.c</code> file of each code. For example, to launch the example Two-Stream instability simulation on the 1D electrostatic code (file <code class="language-plaintext highlighter-rouge">es1d/input/twostream.c</code>), you need to edit the <code class="language-plaintext highlighter-rouge">es1d/main.c</code> file and add:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Include Simulation parameters here</span>
+<span class="cp">#include "input/twostream.c"
+</span></code></pre></div></div>
+
+<p>The file specifying the simulation parameters must define two functions:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">sim_init(t_simulation* sim)</code>   - Initialization of the simulation</li>
+  <li><code class="language-plaintext highlighter-rouge">sim_report(t_simulation* sim)</code> - Simulation diagnostics</li>
+</ul>
+
+<p>Please check the examples available on the <code class="language-plaintext highlighter-rouge">input</code> directories for each code.</p>
+
+<h2 id="main-simulation-parameters">Main simulation parameters</h2>
+
+<p>A ZPIC simulation requires defining a set of numerical parameters regarding the simulation spatial / temporal domain, the simulation particles. Additionally, the user may optionally specify additional parameters, such as laser pulses.</p>
+
+<p>These parameters are defined in the <code class="language-plaintext highlighter-rouge">sim_init()</code> function in the input file. This function <em>must</em> call the <code class="language-plaintext highlighter-rouge">sim_new()</code> function to initialize the <code class="language-plaintext highlighter-rouge">sim</code> (simulation) object:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">sim_new</span><span class="p">(</span> <span class="n">t_simulation</span><span class="o">*</span> <span class="n">sim</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nx</span><span class="p">[],</span> <span class="kt">float</span> <span class="n">box</span><span class="p">[],</span> 
+        <span class="kt">float</span> <span class="n">dt</span><span class="p">,</span> <span class="kt">float</span> <span class="n">tmax</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ndump</span><span class="p">,</span>
+        <span class="n">t_species</span><span class="o">*</span> <span class="n">species</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n_species</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<p>The parameters are:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">sim</code> -  Pointer to simulation object</li>
+  <li><code class="language-plaintext highlighter-rouge">nx</code> - Grid size for the simulation (scalar <code class="language-plaintext highlighter-rouge">int</code> in 1D codes)</li>
+  <li><code class="language-plaintext highlighter-rouge">box</code> - Physical size of the simulation box (scalar <code class="language-plaintext highlighter-rouge">float</code> in 1D codes) in simulation units</li>
+  <li><code class="language-plaintext highlighter-rouge">dt</code> - Simulation time step in simulation units</li>
+  <li><code class="language-plaintext highlighter-rouge">species</code> - Array of <code class="language-plaintext highlighter-rouge">t_species</code> objects specifying particle species. May be set to <code class="language-plaintext highlighter-rouge">NULL</code> for no particle species. See the <a href="particles">Particle injection</a> page for details.</li>
+  <li><code class="language-plaintext highlighter-rouge">n_species</code> - Number of objects in the <code class="language-plaintext highlighter-rouge">species</code> array.</li>
+</ul>
+
+<p>The following example sets the minimal parameters for a 2D ZPIC simulation (with no particles):</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">sim_init</span><span class="p">(</span> <span class="n">t_simulation</span><span class="o">*</span> <span class="n">sim</span> <span class="p">){</span>
+
+  <span class="c1">// Simulation box</span>
+  <span class="kt">int</span>   <span class="n">nx</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="o">=</span> <span class="p">{</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span> <span class="p">};</span>
+  <span class="kt">float</span> <span class="n">box</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span> <span class="p">};</span>
+
+  <span class="c1">// Time step</span>
+  <span class="kt">float</span> <span class="n">dt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mo">07</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">tmax</span> <span class="o">=</span> <span class="mi">70</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+
+  <span class="c1">// Initialize Simulation data</span>
+  <span class="n">sim_new</span><span class="p">(</span> <span class="n">sim</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Please check the <code class="language-plaintext highlighter-rouge">input</code> directories under each code for several complete examples.</p>
+
+<h3 id="simulation-grid-size-and-physical-box">Simulation grid size and physical box</h3>
+
+<p>The input parameters must define the number of grid points in each direction of the simulation grid, and the physical dimensions (in simulation units) of this box. These dimensions are measured from the lower boundary of the first cell to the upper boundary of the last cell.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// Simulation box</span>
+  <span class="kt">int</span>   <span class="n">nx</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="o">=</span> <span class="p">{</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span> <span class="p">};</span>
+  <span class="kt">float</span> <span class="n">box</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span> <span class="p">};</span>
+
+  <span class="c1">// Initialize Simulation data</span>
+  <span class="n">sim_new</span><span class="p">(</span> <span class="n">sim</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="p">...</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="time-step-and-total-simulation-time">Time step and total simulation time</h3>
+
+<p>The input parameters must define the simulation time step and the total simulation time (in simulation units)</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// Time step</span>
+  <span class="kt">float</span> <span class="n">dt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mo">07</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">tmax</span> <span class="o">=</span> <span class="mi">70</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+
+  <span class="c1">// Initialize Simulation data</span>
+  <span class="n">sim_new</span><span class="p">(</span> <span class="n">sim</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="p">...</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<p>The code will check if the time step is compatible with the specified resolution.</p>
+
+<h3 id="diagnostic-frequency">Diagnostic frequency</h3>
+
+<p>The input parameters must also define the frequency at which the <code class="language-plaintext highlighter-rouge">sim_report()</code> function is called from the main loop. For this purpose the user specifies the number of iterations between these function calls:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// Diagnostic frequency - call sim_report() every 50 iterations</span>
+  <span class="kt">int</span> <span class="n">ndump</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+
+  <span class="c1">// Initialize Simulation data</span>
+  <span class="n">sim_new</span><span class="p">(</span> <span class="n">sim</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">ndump</span><span class="p">,</span> <span class="p">...</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<p>Setting this parameter to 0 disables all diagnostics. For details on simulation diagnostics and the <code class="language-plaintext highlighter-rouge">sim_report()</code> function see the <a href="diag">Simulation Diagnostics</a> page.</p>
+
+<h3 id="particles">Particles</h3>
+
+<p>The input parameters may define an arbitrary number of particle species, defining the required plasma properties. See the <a href="particles">Particle injection</a> page for details.</p>
+
+<h2 id="running-the-code">Running the code</h2>
+
+<p>Once you have finished compiling your code (including the simulation parameters as described above), you will have a <code class="language-plaintext highlighter-rouge">zpic</code> binary in the source code folder. Executing this binary will run your simulation. Since output files will be written in the same directory where you run your code it is recommended that you do not run the code in the same directory where the binary was created.</p>
+
+<p>The following example compiles the <code class="language-plaintext highlighter-rouge">em1d</code> code () and runs it in a directory named <code class="language-plaintext highlighter-rouge">test</code>:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd source</span>/zpic/em1d
+<span class="nv">$ </span>make
+gcc <span class="nt">-c</span> <span class="nt">-Ofast</span> <span class="nt">-std</span><span class="o">=</span>c99 <span class="nt">-pedantic</span> current.c <span class="nt">-o</span> current.o
+<span class="o">(</span>...<span class="o">)</span>
+gcc <span class="nt">-Ofast</span> <span class="nt">-std</span><span class="o">=</span>c99 <span class="nt">-pedantic</span> current.o emf.o particles.o random.o timer.o main.o simulation.o zdf.o <span class="nt">-lm</span> <span class="nt">-o</span> zpic
+<span class="nv">$ </span><span class="nb">mkdir test</span>
+<span class="nv">$ </span><span class="nb">cd test</span>
+<span class="nv">$ </span>../zpic
+Starting simulation ...
+
+n <span class="o">=</span> 0, t <span class="o">=</span> 0.000000
+<span class="o">(</span>...<span class="o">)</span>
+n <span class="o">=</span> 500, t <span class="o">=</span> 50.000000
+
+Simulation ended.
+<span class="err">$</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 zpic@edu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

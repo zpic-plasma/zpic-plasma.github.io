@@ -1,0 +1,499 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Particle species - zpic@edu</title>
+<meta name="description" content="Initializing particle data in ZPIC simulations">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="zpic@edu">
+<meta property="og:title" content="Particle species">
+<meta property="og:url" content="http://localhost:4000/documentation/python/particles">
+
+
+  <meta property="og:description" content="Initializing particle data in ZPIC simulations">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/documentation/python/particles">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+
+<!-- for mathjax support -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          zpic@edu
+          <span class="site-subtitle">PIC codes for plasma physics education</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About ZPIC</a>
+            </li><li class="masthead__menu-item">
+              <a href="/start">Getting started</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/examples">Examples</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000//" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/documentation" itemprop="item"><span itemprop="name">Documentation</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/python" itemprop="item"><span itemprop="name">Python</span></a>
+          <meta itemprop="position" content="3" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Particle species</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/start"><span class="nav__sub-title">Getting started</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/start/docker">Running a Docker image</a></li>
+          
+            <li><a href="/start/download">Download ZPIC</a></li>
+          
+            <li><a href="/start/compile">Compiling the code</a></li>
+          
+            <li><a href="/start/compile/macosx">- Mac OS X</a></li>
+          
+            <li><a href="/start/compile/linux">- Linux</a></li>
+          
+            <li><a href="/start/compile/win64">- Windows (WSL)</a></li>
+          
+            <li><a href="/start/compile/msys2">- Windows (MSYS2)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/python"><span class="nav__sub-title">Using ZPIC with Python</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/python/start">Getting started with Python</a></li>
+          
+            <li><a href="/documentation/python/particles" class="active">Particle species</a></li>
+          
+            <li><a href="/documentation/python/data">Simulation data</a></li>
+          
+            <li><a href="/documentation/python/save">Saving output</a></li>
+          
+            <li><a href="/documentation/python/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/python/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/python/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/python/eminit">Initial EM fields</a></li>
+          
+            <li><a href="/documentation/python/emext">External EM fields</a></li>
+          
+            <li><a href="/documentation/python/spectralsolver">Spectral EM field solver</a></li>
+          
+            <li><a href="/documentation/python/api">Python API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/c"><span class="nav__sub-title">Using ZPIC with C</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/c/start">Getting started with C</a></li>
+          
+            <li><a href="/documentation/c/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/c/diag">Simulation diagnostics</a></li>
+          
+            <li><a href="/documentation/c/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/c/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/c/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/c/api">C API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/examples"><span class="nav__sub-title">Examples</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/examples/#tutorials">Tutorial</a></li>
+          
+            <li><a href="/examples/#classroom-examples">Classroom examples</a></li>
+          
+            <li><a href="/examples/#landmark-papers">Landmark papers</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Particle species">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Particle species
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Particle species</h4></header>
+              <ul class="toc__menu"><li><a href="#introduction">Introduction</a></li><li><a href="#the-species-objects">The Species objects</a></li><li><a href="#1d-density-profiles">1D Density profiles</a></li><li><a href="#2d-density-profiles">2D Density profiles</a></li><li><a href="#diagnostics">Diagnostics</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="introduction">Introduction</h2>
+
+<p>Adding particle species to the simulation is done using the <code class="language-plaintext highlighter-rouge">species</code> keyword of the <code class="language-plaintext highlighter-rouge">Simulation</code> class.  Users may use an an arbitrary number of particle species, defining the required plasma properties, such as density, temperature, fluid velocity, etc. Particle species must be created before creating the simulation object, e.g.:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">right</span> <span class="o">=</span> <span class="n">zpic</span><span class="p">.</span><span class="n">Species</span><span class="p">(</span> <span class="s">"right"</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">ppc</span><span class="p">,</span> <span class="n">ufl</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">uth</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.001</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">left</span>  <span class="o">=</span> <span class="n">zpic</span><span class="p">.</span><span class="n">Species</span><span class="p">(</span> <span class="s">"left"</span><span class="p">,</span>  <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">ppc</span><span class="p">,</span> <span class="n">ufl</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">uth</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.001</span><span class="p">]</span> <span class="p">)</span>
+
+<span class="n">sim</span> <span class="o">=</span> <span class="n">zpic</span><span class="p">.</span><span class="n">Simulation</span><span class="p">(</span> <span class="n">nx</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">species</span> <span class="o">=</span> <span class="p">[</span><span class="n">right</span><span class="p">,</span><span class="n">left</span><span class="p">]</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="the-species-objects">The Species objects</h2>
+
+<p>When creating a particle species object, the <code class="language-plaintext highlighter-rouge">Species</code> class constructor takes the following parameters:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">name</code> - Name of the particle species</li>
+  <li><code class="language-plaintext highlighter-rouge">m_q</code> - Mass over charge ratio for the particle species, in normalized units. For electrons this would be -1.</li>
+  <li><code class="language-plaintext highlighter-rouge">ppc</code> - Number of particles per cell. In 2D this should be a 2 element integer list specifying the number of particles per cell in each direction.</li>
+</ul>
+
+<p>Additionally it may also take the following optional keyworkds:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ufl</code> - Initial fluid (generalized) velocity for the particles, defaults to [0,0,0] (no fluid velocity).</li>
+  <li><code class="language-plaintext highlighter-rouge">uth</code> - Initial thermal velocity for the particles, defaults to [0,0,0] (no thermal velocity).</li>
+  <li><code class="language-plaintext highlighter-rouge">density</code> - Density profile for the particle species, defaults to using a uniform density $n = 1$, see below for details.</li>
+  <li><code class="language-plaintext highlighter-rouge">n_sort</code> - Particle sorting frequency, defaults to 16.</li>
+</ul>
+
+<p>The particles per cell parameter (<code class="language-plaintext highlighter-rouge">ppc</code>) of the species object specifies the number of particles per cell that correspond to the reference density (1.0). If you require a large range of density values, this parameter should be set to a reasonably high value, otherwise you may have cells with zero particles in the low density regions.</p>
+
+<p>The particle sorting frequency (<code class="language-plaintext highlighter-rouge">n_sort</code>) refers to a performance optimization that improves memory cache use. To this end, particles are reordered in the particle buffer every <code class="language-plaintext highlighter-rouge">n_sort</code> iterations so that particles in the same simulatio cell are together in the buffer. If you don’t want this behavior you may safely disable it by doing <code class="language-plaintext highlighter-rouge">n_sort = 0</code>.</p>
+
+<h2 id="1d-density-profiles">1D Density profiles</h2>
+
+<p>ZPIC defaults to using a uniform density profile for particle species. To use a different density profile the user must create a <code class="language-plaintext highlighter-rouge">Density</code> object and set it as the <code class="language-plaintext highlighter-rouge">density</code> keyword when creating the particle species. Different density values are obtained by placing more or less particles per cell. As mentioned above, the number of particles per cell corresponding to a density value of 1.0 is set by the parameter <code class="language-plaintext highlighter-rouge">ppc</code>.</p>
+
+<p>The following example creates an electron species using 128 particles per cell starting at position 17.5.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">density</span> <span class="o">=</span> <span class="n">zpic</span><span class="p">.</span><span class="n">Density</span><span class="p">(</span> <span class="nb">type</span> <span class="o">=</span> <span class="s">"step"</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="mf">17.5</span> <span class="p">)</span>
+<span class="n">electrons</span> <span class="o">=</span> <span class="n">zpic</span><span class="p">.</span><span class="n">Species</span><span class="p">(</span> <span class="s">"electrons"</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="n">density</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<p>The specific type of density profile is set through the <code class="language-plaintext highlighter-rouge">type</code> keyword when creating the <code class="language-plaintext highlighter-rouge">Density</code> object. Available options are:</p>
+
+<ul>
+  <li><strong>“uniform”</strong> - (default) Uniform density</li>
+  <li><strong>“step”</strong> - Step like density profile (0 before the step, 1 afterwards), the keyword <code class="language-plaintext highlighter-rouge">start</code> specifies the position of the step</li>
+  <li><strong>“slab”</strong> - Slab like density profile (1 inside the slab, 0 outside), the keywords <code class="language-plaintext highlighter-rouge">start</code>/<code class="language-plaintext highlighter-rouge">end</code> specify the beginning/end of the slab</li>
+  <li><strong>“ramp”</strong> - Linear density ramp, with 0 density outside the ramp region. The keywords <code class="language-plaintext highlighter-rouge">start</code>/<code class="language-plaintext highlighter-rouge">end</code> specify the beginning/end of the ramp, and the keyword <code class="language-plaintext highlighter-rouge">ramp</code> specifies the required density at these two points.</li>
+  <li><strong>“custom”</strong> - Custom density profile. Density is specified through a custom function specified through the <code class="language-plaintext highlighter-rouge">custom</code> keyword. This function takes a single parameter specifying the position and returns the required density at that point.</li>
+</ul>
+
+<h2 id="2d-density-profiles">2D Density profiles</h2>
+
+<p>Setting the density profile in 2D works the same way as in 1D. Available <code class="language-plaintext highlighter-rouge">Density</code> options are:</p>
+
+<ul>
+  <li><strong>“uniform”</strong> - (default) Uniform density</li>
+  <li><strong>“step”</strong> - Step like density profile along $x$ (0 before the step, 1 afterwards), the keyword <code class="language-plaintext highlighter-rouge">start</code> specifies the $x$ position of the step</li>
+  <li><strong>“slab”</strong> - Slab like density profile along $x$ (1 inside the slab, 0 outside), the keywords <code class="language-plaintext highlighter-rouge">start</code>/<code class="language-plaintext highlighter-rouge">end</code> specify the $x$ poitison of the beginning/end of the slab</li>
+  <li><strong>“custom”</strong> - Custom density profile. Density is specified using 2 custom functions specified through the <code class="language-plaintext highlighter-rouge">custom_x</code> and <code class="language-plaintext highlighter-rouge">custom_y</code> keywords. The density at each point will be <code class="language-plaintext highlighter-rouge">custom_x(x) * custom_y(y)</code>.</li>
+</ul>
+
+<h2 id="diagnostics">Diagnostics</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">Species</code> object includes special methods / properties to simplify getting diagnostic information:</p>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">Species.energy</code> property has the kinetic energy of the species. Bare in mind that this energy calculated during the particle advance, so it will be 0 before the simulation starts.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">Species.charge()</code> method returns a NumPy array with the same shape as the simulation grid with the charge density of the species.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">Species.phasespace(quants, pha_nx, pha_range)</code> method returns a NumPy array with the phasespace density of the species. Method parameters are:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">quants</code> - list of 2 quantities that make the phasespace axis, possible values are <code class="language-plaintext highlighter-rouge">'x1'</code>, <code class="language-plaintext highlighter-rouge">'x2'</code> (2D codes only), <code class="language-plaintext highlighter-rouge">'u1'</code>, <code class="language-plaintext highlighter-rouge">'u2'</code>, and <code class="language-plaintext highlighter-rouge">'u3'</code> specifying positions and generalized velocities, respectively.</li>
+      <li><code class="language-plaintext highlighter-rouge">pha_nx</code> - Dimensions of phasespace grid</li>
+      <li><code class="language-plaintext highlighter-rouge">pha_range</code>- Physical limits of the phasespace grid.</li>
+    </ul>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 zpic@edu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

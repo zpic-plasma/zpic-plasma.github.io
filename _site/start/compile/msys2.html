@@ -1,0 +1,546 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Compiling ZPIC for Windows (MSYS2) - zpic@edu</title>
+<meta name="description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="zpic@edu">
+<meta property="og:title" content="Compiling ZPIC for Windows (MSYS2)">
+<meta property="og:url" content="http://localhost:4000/start/compile/msys2">
+
+
+  <meta property="og:description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/start/compile/msys2">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+
+
+
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          zpic@edu
+          <span class="site-subtitle">PIC codes for plasma physics education</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About ZPIC</a>
+            </li><li class="masthead__menu-item">
+              <a href="/start">Getting started</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/examples">Examples</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000//" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/start" itemprop="item"><span itemprop="name">Start</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/compile" itemprop="item"><span itemprop="name">Compile</span></a>
+          <meta itemprop="position" content="3" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Compiling ZPIC for Windows (MSYS2)</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/start"><span class="nav__sub-title">Getting started</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/start/docker">Running a Docker image</a></li>
+          
+            <li><a href="/start/download">Download ZPIC</a></li>
+          
+            <li><a href="/start/compile">Compiling the code</a></li>
+          
+            <li><a href="/start/compile/macosx">- Mac OS X</a></li>
+          
+            <li><a href="/start/compile/linux">- Linux</a></li>
+          
+            <li><a href="/start/compile/win64">- Windows (WSL)</a></li>
+          
+            <li><a href="/start/compile/msys2" class="active">- Windows (MSYS2)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/python"><span class="nav__sub-title">Using ZPIC with Python</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/python/start">Getting started with Python</a></li>
+          
+            <li><a href="/documentation/python/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/python/data">Simulation data</a></li>
+          
+            <li><a href="/documentation/python/save">Saving output</a></li>
+          
+            <li><a href="/documentation/python/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/python/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/python/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/python/eminit">Initial EM fields</a></li>
+          
+            <li><a href="/documentation/python/emext">External EM fields</a></li>
+          
+            <li><a href="/documentation/python/spectralsolver">Spectral EM field solver</a></li>
+          
+            <li><a href="/documentation/python/api">Python API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/c"><span class="nav__sub-title">Using ZPIC with C</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/c/start">Getting started with C</a></li>
+          
+            <li><a href="/documentation/c/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/c/diag">Simulation diagnostics</a></li>
+          
+            <li><a href="/documentation/c/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/c/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/c/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/c/api">C API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/examples"><span class="nav__sub-title">Examples</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/examples/#tutorials">Tutorial</a></li>
+          
+            <li><a href="/examples/#classroom-examples">Classroom examples</a></li>
+          
+            <li><a href="/examples/#landmark-papers">Landmark papers</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Compiling ZPIC for Windows (MSYS2)">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Compiling ZPIC for Windows (MSYS2)
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Compiling for Windows (MSYS2)</h4></header>
+              <ul class="toc__menu"><li><a href="#zpic-on-windows-using-msys2">ZPIC on Windows using MSYS2</a></li><li><a href="#installing-msys2">Installing MSYS2</a><ul><li><a href="#initial-configuration">Initial Configuration</a></li><li><a href="#additional-modules">Additional modules</a></li><li><a href="#compiler-toolchain">Compiler toolchain</a></li><li><a href="#additional-python-modules">Additional Python modules</a></li></ul></li><li><a href="#build-zpic-python-modules">Build ZPIC Python modules</a></li><li><a href="#launching-notebooks">Launching notebooks</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="zpic-on-windows-using-msys2">ZPIC on Windows using MSYS2</h2>
+
+<p>For using ZPIC on Windows we recommend using the Windows Subsystem for Linux (WSL) instead. You can find instructions for running ZPIC on Windows using WSL <a href="../win64">here</a>.</p>
+
+<p>If you are unable (or unwilling) to use WSL you can try MSYS2 instead. MSYS2 is a collection of tools and libraries providing you with an easy-to-use environment for building, installing and running native Windows software. For more information on MSYS2 please check their website:</p>
+
+<p><a href="https://www.msys2.org/">https://www.msys2.org/</a></p>
+
+<p>The instructions provided here allow you to set up a working MSYS2 environment on windows for using the ZPIC code notebooks. This was tested with:</p>
+
+<ul>
+  <li>Microsoft Windows 10 Pro, Version 10.0.19042 Build 19042</li>
+  <li>MSYS2 version msys2-x86_64-20220319</li>
+</ul>
+
+<p>On April 2022.</p>
+
+<h2 id="installing-msys2">Installing MSYS2</h2>
+
+<ol>
+  <li>Download installer from <a href="https://www.msys2.org/">https://www.msys2.org</a></li>
+  <li>Double-click and Install</li>
+</ol>
+
+<h3 id="initial-configuration">Initial Configuration</h3>
+
+<p>(Follows the instructions from the MSYS2 website)</p>
+
+<p>Open MSYS2 and run the following command to update the package database and base packages:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pacman <span class="nt">-Syu</span>
+</code></pre></div></div>
+
+<p>This will close the MSYS2 window once it is complete. Now open the <code class="language-plaintext highlighter-rouge">MSYS2 MinGW x64</code> application and run the following command to update the rest of the packages:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pacman <span class="nt">-Su</span>
+</code></pre></div></div>
+
+<h3 id="additional-modules">Additional modules</h3>
+
+<p>To install the additional packages required by ZPIC notebooks run the following commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pacman <span class="nt">-S</span> mingw-w64-x86_64-python-ipython
+<span class="nv">$ </span>pacman <span class="nt">-S</span> mingw-w64-x86_64-python-scipy
+<span class="nv">$ </span>pacman <span class="nt">-S</span> mingw-w64-x86_64-python-matplotlib
+<span class="nv">$ </span>pacman <span class="nt">-S</span> mingw-w64-x86_64-python-jupyter_console
+<span class="nv">$ </span>pacman <span class="nt">-S</span> mingw-w64-x86_64-python-argon2_cffi
+<span class="nv">$ </span>pacman <span class="nt">-S</span> mingw-w64-x86_64-python-jupyterlab-pygments
+<span class="nv">$ </span>pacman <span class="nt">-S</span> git
+<span class="nv">$ </span>pacman <span class="nt">-S</span> mingw-w64-x86_64-ffmpeg
+</code></pre></div></div>
+
+<h3 id="compiler-toolchain">Compiler toolchain</h3>
+
+<p>You now need to add a compiler toolchaing for building the ZPIC C/Python modules:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pacman <span class="nt">-S</span> <span class="nt">--needed</span> base-devel mingw-w64-x86_64-toolchain
+</code></pre></div></div>
+
+<h3 id="additional-python-modules">Additional Python modules</h3>
+
+<p>Finally you will need a few additional modules that must be installed from within python:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pacman <span class="nt">-S</span> mingw-w64-x86_64-python-pip
+<span class="nv">$ </span>python <span class="nt">-m</span> pip <span class="nb">install </span>jupyterlab
+<span class="nv">$ </span>python <span class="nt">-m</span> pip <span class="nb">install </span>ipympl
+<span class="nv">$ </span>python <span class="nt">-m</span> pip <span class="nb">install </span>cython 
+</code></pre></div></div>
+
+<h2 id="build-zpic-python-modules">Build ZPIC Python modules</h2>
+
+<p>From now on your MSYS2 environment will work like a Linux/Mac OS X environment. Just navigate to your <code class="language-plaintext highlighter-rouge">zpic/python</code> directory and type <code class="language-plaintext highlighter-rouge">mingw32-make</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>zpic/python
+<span class="nv">$ </span>mingw32-make
+<span class="nv">$ </span><span class="nb">cd source</span> <span class="o">&amp;&amp;</span> C:/msys64/mingw64/bin/mingw32-make.exe
+mingw32-make[1]: Entering directory <span class="s1">'C:/msys64/home/zpic_user/zpic/python/source'</span>
+python3 setup.py build_ext <span class="nt">--build-lib</span><span class="o">=</span>../lib
+Compiling em1d.pyx because it changed.
+Compiling em2d.pyx because it changed.
+Compiling es1d.pyx because it changed.
+Compiling em1ds.pyx because it changed.
+Compiling em2ds.pyx because it changed.
+<span class="o">[</span>1/5] Cythonizing em1d.pyx
+<span class="o">[</span>2/5] Cythonizing em1ds.pyx
+
+<span class="o">(</span>...<span class="o">)</span>
+
+writing build/temp.mingw_x86_64-3.9/msys64/home/zpic_user/zpic/em2ds/em2ds.cp39-mingw_x86_64.def
+gcc <span class="nt">-shared</span> <span class="nt">-Wl</span>,--enable-auto-image-base <span class="nt">-pipe</span> <span class="nt">-pipe</span> <span class="nt">-s</span> build/temp.mingw_x86_64-3.9/msys64/home/zpic_user/zpic/em2ds/charge.o build/temp.mingw_x86_64-3.9/msys64/home/zpic_user/zpic/em2ds/current.o build/temp.mingw_x86_64-3.9/msys64/home/zpic_user/zpic/em2ds/emf.o build/temp.mingw_x86_64-3.9/msys64/home/zpic_user/zpic/em2ds/fft.o build/temp.mingw_x86_64-3.9/msys64/home/zpic_user/zpic/em2ds/filter.o build/temp.mingw_x86_64-3.9/msys64/home/zpic_user/zpic/em2ds/grid2d.o build/temp.mingw_x86_64-3.9/msys64/home/zpic_user/zpic/em2ds/particles.o build/temp.mingw_x86_64-3.9/msys64/home/zpic_user/zpic/em2ds/random.o build/temp.mingw_x86_64-3.9/msys64/home/zpic_user/zpic/em2ds/simulation.o build/temp.mingw_x86_64-3.9/msys64/home/zpic_user/zpic/em2ds/timer.o build/temp.mingw_x86_64-3.9/msys64/home/zpic_user/zpic/em2ds/zdf.o build/temp.mingw_x86_64-3.9/em2ds.o build/temp.mingw_x86_64-3.9/msys64/home/zpic_user/zpic/em2ds/em2ds.cp39-mingw_x86_64.def <span class="nt">-LC</span>:/msys64/mingw64/lib/python3.9/config-3.9 <span class="nt">-LC</span>:/msys64/mingw64/lib <span class="nt">-lpython3</span>.9 <span class="nt">-lm</span> <span class="nt">-lversion</span> <span class="nt">-lshlwapi</span> <span class="nt">-o</span> ../lib/em2ds.cp39-mingw_x86_64.pyd
+mingw32-make[1]: Leaving directory <span class="s1">'C:/msys64/home/zpic_user/zpic/python/source'</span>
+
+</code></pre></div></div>
+
+<h2 id="launching-notebooks">Launching notebooks</h2>
+
+<p>Before you can launch your notebooks there is an additional step that must be performed: you must specify the path to the Jupyter python kernel. To this end edit the file:</p>
+
+<p><code class="language-plaintext highlighter-rouge">/mingw64/share/jupyter/kernels/python3/kernel.json</code></p>
+
+<p>Change line 3 from:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   "D:/a/_temp/msys/msys64/mingw64/bin/python.exe",
+</code></pre></div></div>
+
+<p>To the path to your python binary, usually:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   "C:/msys64/mingw64/bin/python.exe",
+</code></pre></div></div>
+
+<p>At this point you should be able to run the ZPIC notebooks by doing:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jupyter lab
+[I 2022-04-26 17:07:06.013 ServerApp] jupyterlab | extension was successfully linked.
+[I 2022-04-26 17:07:06.023 ServerApp] nbclassic | extension was successfully linked.
+[I 2022-04-26 17:07:06.277 ServerApp] notebook_shim | extension was successfully linked.
+[I 2022-04-26 17:07:06.307 ServerApp] notebook_shim | extension was successfully loaded.
+[I 2022-04-26 17:07:06.307 LabApp] JupyterLab extension loaded from C:/msys64/mingw64/lib/python3.9/site-packages/jupyterlab
+[I 2022-04-26 17:07:06.307 LabApp] JupyterLab application directory is C:/msys64/mingw64/share/jupyter/lab
+[I 2022-04-26 17:07:06.307 ServerApp] jupyterlab | extension was successfully loaded.
+[I 2022-04-26 17:07:06.317 ServerApp] nbclassic | extension was successfully loaded.
+[I 2022-04-26 17:07:06.317 ServerApp] Serving notebooks from local directory: C:/msys64
+[I 2022-04-26 17:07:06.317 ServerApp] Jupyter Server 1.16.0 is running at:
+[I 2022-04-26 17:07:06.317 ServerApp] http://localhost:8888/lab?token=ffad91c015129aadca9715ddb4d1943007a2063397e88ab5
+[I 2022-04-26 17:07:06.317 ServerApp]  or gcc
+[I 2022-04-26 17:07:06.317 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 2022-04-26 17:07:06.357 ServerApp]
+
+    To access the server, open this file in a browser:
+        file:///C://Users/zpic_user/AppData/Roaming/jupyter/runtime/jpserver-4712-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/lab?token=ffad91c015129aadca9715ddb4d1943007a2063397e88ab5
+     or http://127.0.0.1:8888/lab?token=ffad91c015129aadca9715ddb4d1943007a2063397e88ab5
+
+</code></pre></div></div>
+
+<p>Just access the Jupyter server by one of the methods specified above, and open the <code class="language-plaintext highlighter-rouge">README.ipynb</code> notebook to verify that everything is running.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 zpic@edu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,496 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Compiling ZPIC for Mac OS X - zpic@edu</title>
+<meta name="description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="zpic@edu">
+<meta property="og:title" content="Compiling ZPIC for Mac OS X">
+<meta property="og:url" content="http://localhost:4000/start/compile/macosx/">
+
+
+  <meta property="og:description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/start/compile/macosx/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+
+
+
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          zpic@edu
+          <span class="site-subtitle">PIC codes for plasma physics education</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About ZPIC</a>
+            </li><li class="masthead__menu-item">
+              <a href="/start">Getting started</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/examples">Examples</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000//" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/start" itemprop="item"><span itemprop="name">Start</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/compile" itemprop="item"><span itemprop="name">Compile</span></a>
+          <meta itemprop="position" content="3" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Compiling ZPIC for Mac OS X</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/start"><span class="nav__sub-title">Getting started</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/start/docker">Running a Docker image</a></li>
+          
+            <li><a href="/start/download">Download ZPIC</a></li>
+          
+            <li><a href="/start/compile">Compiling the code</a></li>
+          
+            <li><a href="/start/compile/macosx">- Mac OS X</a></li>
+          
+            <li><a href="/start/compile/linux">- Linux</a></li>
+          
+            <li><a href="/start/compile/win64">- Windows (WSL)</a></li>
+          
+            <li><a href="/start/compile/msys2">- Windows (MSYS2)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/python"><span class="nav__sub-title">Using ZPIC with Python</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/python/start">Getting started with Python</a></li>
+          
+            <li><a href="/documentation/python/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/python/data">Simulation data</a></li>
+          
+            <li><a href="/documentation/python/save">Saving output</a></li>
+          
+            <li><a href="/documentation/python/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/python/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/python/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/python/eminit">Initial EM fields</a></li>
+          
+            <li><a href="/documentation/python/emext">External EM fields</a></li>
+          
+            <li><a href="/documentation/python/spectralsolver">Spectral EM field solver</a></li>
+          
+            <li><a href="/documentation/python/api">Python API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/c"><span class="nav__sub-title">Using ZPIC with C</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/c/start">Getting started with C</a></li>
+          
+            <li><a href="/documentation/c/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/c/diag">Simulation diagnostics</a></li>
+          
+            <li><a href="/documentation/c/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/c/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/c/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/c/api">C API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/examples"><span class="nav__sub-title">Examples</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/examples/#tutorials">Tutorial</a></li>
+          
+            <li><a href="/examples/#classroom-examples">Classroom examples</a></li>
+          
+            <li><a href="/examples/#landmark-papers">Landmark papers</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Compiling ZPIC for Mac OS X">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Compiling ZPIC for Mac OS X
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Compiling for Mac OS X</h4></header>
+              <ul class="toc__menu"><li><a href="#pre-requisites---all">Pre-requisites - All</a></li><li><a href="#pre-requisites---python">Pre-requisites - Python</a></li><li><a href="#compiling-the-code">Compiling the code</a><ul><li><a href="#individual-c-code-versions">Individual C code versions</a></li><li><a href="#python-modules">Python modules</a></li></ul></li><li><a href="#launching-zpic-notebooks">Launching ZPIC notebooks</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="pre-requisites---all">Pre-requisites - All</h2>
+
+<p>To compile the ZPIC C codes on Mac OS X all you need are the Xcode Command Line Tools. You don’t need the full <a href="https://developer.apple.com/xcode/">Xcode</a> package, but if you have it installed just make sure you have it up to date.</p>
+
+<p>To install the Xcode Command Line tools just open the Terminal and type the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>xcode-select <span class="nt">--install</span>
+</code></pre></div></div>
+
+<p>If you have the tools already installed you should see something like this:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>xcode-select <span class="nt">--install</span>
+xcode-select: error: <span class="nb">command </span>line tools are already
+installed, use <span class="s2">"Software Update"</span> to <span class="nb">install </span>updates
+</code></pre></div></div>
+
+<p>Otherwise a dialog box should pop up. Just click “Install” to download and install the Xcode Command Line Tools.</p>
+
+<h2 id="pre-requisites---python">Pre-requisites - Python</h2>
+
+<p>Compiling and using the Python modules also requires the <a href="https://cython.org/">Cython</a> and <a href="https://numpy.org/">Numpy</a> Python packages, just install them using whatever package manager you prefer (e.g. <code class="language-plaintext highlighter-rouge">pip3 install Cython</code>). The modules can be used from any Python script, but using them in <a href="https://jupyter.org">Jupyter</a> notebooks is recommended.</p>
+
+<p>Additional recommended python packages are:</p>
+
+<ul>
+  <li>ipython</li>
+  <li>scipy</li>
+  <li>matplotlib</li>
+  <li>jupyterlab</li>
+  <li>Cython</li>
+  <li>ipympl</li>
+</ul>
+
+<h2 id="compiling-the-code">Compiling the code</h2>
+
+<h3 id="individual-c-code-versions">Individual C code versions</h3>
+
+<p>Each of the <code class="language-plaintext highlighter-rouge">C</code> code versions, available in different directories, is a complete standalone version, and can be compiled separately. Each of these directories contains a local <code class="language-plaintext highlighter-rouge">Makefile</code> that you can edit if you need to change any of the compiler parameters (or want to specify a different compiler).</p>
+
+<p>To compile any of the code versions, just open a terminal window and navigate to the directory with the code that you want to use. You can then compile the code using the <code class="language-plaintext highlighter-rouge">make</code> command. You can clean up all the generated object files and executable by issuing the <code class="language-plaintext highlighter-rouge">make clean</code> command.</p>
+
+<p>In this example we will compile the <code class="language-plaintext highlighter-rouge">em2d</code> code. We assume you have the code on inside a directory named <code class="language-plaintext highlighter-rouge">source</code> in your home folder. Just go into that directory and run <code class="language-plaintext highlighter-rouge">make</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd source</span>/zpic/em2d
+<span class="nv">$ </span>make
+gcc <span class="nt">-c</span> <span class="nt">-Ofast</span> <span class="nt">-std</span><span class="o">=</span>c99 <span class="nt">-pedantic</span> current.c <span class="nt">-o</span> current.o
+gcc <span class="nt">-c</span> <span class="nt">-Ofast</span> <span class="nt">-std</span><span class="o">=</span>c99 <span class="nt">-pedantic</span> emf.c <span class="nt">-o</span> emf.o
+<span class="o">(</span>...<span class="o">)</span>
+gcc <span class="nt">-Ofast</span> <span class="nt">-std</span><span class="o">=</span>c99 <span class="nt">-pedantic</span>  current.o emf.o particles.o random.o timer.o main.o simulation.o zdf.o <span class="nt">-o</span> zpic
+<span class="nv">$ </span>
+</code></pre></div></div>
+
+<p>Once compilation has finished there will be a <code class="language-plaintext highlighter-rouge">zpic</code> binary file in the same directory that you can run.</p>
+
+<h3 id="python-modules">Python modules</h3>
+
+<p>To compile the python modules navigate to the <code class="language-plaintext highlighter-rouge">python</code> directory on the ZPIC sourcetree and run <code class="language-plaintext highlighter-rouge">make</code>:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd source</span>/zpic/python
+<span class="nv">$ </span>make
+<span class="nb">cd source</span> <span class="o">&amp;&amp;</span> /Library/Developer/CommandLineTools/usr/bin/make
+python3 setup.py build_ext <span class="nt">--build-lib</span><span class="o">=</span>../lib
+Compiling em1d.pyx because it changed.
+Compiling em2d.pyx because it changed.
+<span class="o">(</span>...<span class="o">)</span>
+clang <span class="nt">-bundle</span> <span class="nt">-undefined</span> dynamic_lookup <span class="nt">-isysroot</span> /Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk build/temp.macosx-12-x86_64-3.9/Users/zamb/Source/zpic/em2ds/charge.o build/temp.macosx-12-x86_64-3.9/Users/zamb/Source/zpic/em2ds/current.o build/temp.macosx-12-x86_64-3.9/Users/zamb/Source/zpic/em2ds/emf.o build/temp.macosx-12-x86_64-3.9/Users/zamb/Source/zpic/em2ds/fft.o build/temp.macosx-12-x86_64-3.9/Users/zamb/Source/zpic/em2ds/filter.o build/temp.macosx-12-x86_64-3.9/Users/zamb/Source/zpic/em2ds/grid2d.o build/temp.macosx-12-x86_64-3.9/Users/zamb/Source/zpic/em2ds/particles.o build/temp.macosx-12-x86_64-3.9/Users/zamb/Source/zpic/em2ds/random.o build/temp.macosx-12-x86_64-3.9/Users/zamb/Source/zpic/em2ds/simulation.o build/temp.macosx-12-x86_64-3.9/Users/zamb/Source/zpic/em2ds/timer.o build/temp.macosx-12-x86_64-3.9/Users/zamb/Source/zpic/em2ds/zdf.o build/temp.macosx-12-x86_64-3.9/em2ds.o <span class="nt">-o</span> ../lib/em2ds.cpython-39-darwin.so
+<span class="nv">$ </span>
+</code></pre></div></div>
+
+<p>Libraries will be created in the <code class="language-plaintext highlighter-rouge">python/lib</code> directory, you need to add that library to your Python environment so you can use the modules.</p>
+
+<h2 id="launching-zpic-notebooks">Launching ZPIC notebooks</h2>
+
+<p>Once you have compiled the Python modules, you shoud be able to launch the ZPIC notebooks by navigating into the <code class="language-plaintext highlighter-rouge">notebooks</code> directory and launching Jupyter:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>python/notebooks
+<span class="nv">$ </span>jupyter lab
+<span class="o">[</span>I 2022-06-07 14:05:36.220 ServerApp] jupyterlab | extension was successfully linked.
+<span class="o">(</span>...<span class="o">)</span>
+<span class="o">[</span>I 2022-06-07 14:05:36.673 ServerApp] Jupyter Server 1.13.3 is running at:
+<span class="o">[</span>I 2022-06-07 14:05:36.673 ServerApp] http://localhost:8888/lab?token<span class="o">=</span>a13a9886d3948335ac4a920cdbd24d9c498d9b9f493c700a
+<span class="o">(</span>...<span class="o">)</span>
+</code></pre></div></div>
+
+<p>Depending on your configuration, a browser should have opened with your Jupyter session. If not, just copy the URL shown in your terminal (including the token) into the URL bar of any browser.</p>
+
+<p>Be sure to open the <code class="language-plaintext highlighter-rouge">README.ipynb</code> file first.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 zpic@edu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

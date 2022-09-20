@@ -1,0 +1,365 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Particle-in-Cell algorithm - zpic@edu</title>
+<meta name="description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="zpic@edu">
+<meta property="og:title" content="Particle-in-Cell algorithm">
+<meta property="og:url" content="http://localhost:4000/about/pic">
+
+
+  <meta property="og:description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/about/pic">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+
+<!-- for mathjax support -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          zpic@edu
+          <span class="site-subtitle">PIC codes for plasma physics education</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About ZPIC</a>
+            </li><li class="masthead__menu-item">
+              <a href="/start">Getting started</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/examples">Examples</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000//" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/about" itemprop="item"><span itemprop="name">About</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Particle-in-Cell algorithm</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/about"><span class="nav__sub-title">About</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/about/pic" class="active">The PIC algorithm</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/about/implementation"><span class="nav__sub-title">Implementation details</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/about/particles">Particles</a></li>
+          
+            <li><a href="/about/deposit">Current/charge deposit</a></li>
+          
+            <li><a href="/about/fields">Fields</a></li>
+          
+            <li><a href="/about/interpolation">Grid interpolation</a></li>
+          
+            <li><a href="/about/units">ZPIC Units</a></li>
+          
+            <li><a href="/about/data">Data structures</a></li>
+          
+            <li><a href="/about/timecenter">Time centering</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Particle-in-Cell algorithm">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Particle-in-Cell algorithm
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Based on the highly nonlinear and kinetic processes that occur in many plasma physics scenarios, we must use a kinetic description of the plasma in our numerical model. Solving the plasma kinetic equations (e.g. Vlasov or Focker-Planck equations) numerically is not achievable in realistic geometries with nowadays computers, and presently the best choice is that of “particle simulations”. This follows the pioneering work of Buneman and Dawson in the early 1960’s [Buneman 1959, Dawson 1962] that showed we can accurately model the collective behavior of plasmas by following the evolution of a relatively small number (when compared to the number of particles in a real plasma) of simulation particles. This lead to the concept of a macro particle, that represents many plasma particles, and allows for the simulation of large spatial regions on the order of several tens of collisionless plasma skin depths.</p>
+
+<p>As a first approach we might consider calculating the interaction between these particles directly, implementing a so called particle-particle algorithm. However, even using macro particles, realistic simulations would still lead to enormous requirements in computing power, requiring months of computing time in present day state of the art machines, since the number of operations required for such algorithm will scale roughly as the square of the number of particles used.</p>
+
+<h2 id="the-particle-in-cell-algorithm-pic">The particle-in-cell algorithm (PIC)</h2>
+
+<p>The solution to this problem comes from the fact that we are generally interested in situations where the relevant physics is dominated by the collective effects of the plasma, meaning that short-range collisions can be neglected. In this sense, rather than interacting particles directly we will do so through the electromagnetic fields, which we will sample on a grid. The field values are interpolated at particle positions to calculate forces acting on particles, and particle motion will be used to determine the electrical current density used to solve the field equations. This is a so called particle-mesh algorithm, which greatly reduces the computing power requirements. With this algorithm, the number of operations for a simulation with $N_P$ particles and $N_{cells}$ grid cells will scale as $\sim \alpha \times N_P + \beta(N_{cells})$, where $\alpha$ is an integer constant (on the order of $\sim 10^3$) and $\beta$ is a function of the number of cells, usually scaling as $\sim \mathcal{O}(N_{cells})$ or $\sim \mathcal{O}( N_{cells} \log N_{cells})$ depending on the field solver type. The first term generally dominates, and the number of operations now scales linearly with the number of particles, and an extraordinary performance boost. However, this is gained at the expense of spatial resolution, given that we are now discretizing our fields on a grid thus limiting the shortest wavelengths that we can study.</p>
+
+<figure class="">
+  <img src="/assets/images/pic_loop.svg" alt="PIC loop" /><figcaption>
+      <strong>PIC loop</strong> The <em>i</em> subscripts indicate particle quantities while the <em>j</em> subscripts indicate grid quantities.
+
+    </figcaption></figure>
+
+<p>There are a variety of PIC codes in common use, differentiated by the kinds of forces retained in the model. The simplest is the electrostatic force, described by a Poisson equation. More complex are the Darwin (non-radiative electromagnetics) and the fully electromagnetic models. PIC codes generally have four important procedures in the main iteration loop. The first is the deposit, where some particle quantity, such as a charge, is accumulated on a grid via interpolation to produce a source density. Various other quantities can also be deposited, such as current densities, depending on the model. The second important procedure is the field solver, which solves Maxwells equations or a subset to obtain the electric and/or magnetic fields from the source densities. Once the fields are obtained, the particle forces are found by interpolation from the grid, and finally the particle coordinates are updated, using Newtons second law and the Lorentz force.</p>
+
+<p>The image above illustrates a typical iteration loop in a PIC code [Hockney 1981, Dawson 1983, Birdsall 1991]. After setting the initial conditions for the problem being simulated, the main simulation loop will advance particles advanced using the Lorentz force resulting from the self-consistent electromagnetic field in the simulation. These fields are defined on a grid, and need to be interpolated at the particle positions using some form of weighing function, effectively connecting grid and particles quantities. Traditionally PIC codes use linear interpolation, that combines the values of the two nearest grid points in each dimension, which is acceptable for many simulation problems, with iteration counts up to $\sim 10^4$ [Villasenor 1992].</p>
+
+<h3 id="references">References</h3>
+
+<ul>
+  <li>Buneman O 1959 <em>Phys. Rev.</em> <strong>115</strong> 503-517.</li>
+  <li>Dawson J M 1962, <em>Phys. Fluids</em> <strong>5</strong>, 445-459.</li>
+  <li>Dawson J M 1983, <em>Rev. Mod. Phys.</em>, <strong>55</strong>(2), 403-445</li>
+  <li>Hockney R W and Eastwood J W 1981, <em>Computer Simulation Using Particles</em>, McGraw-Hill, New York.</li>
+  <li>Birdsall C K and Langdon  A B 1991, <em>Plasma Physics via Computer Simulations</em>, IoP Publishing, Bristol, UK.</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 zpic@edu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,511 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Initial EM fields - zpic@edu</title>
+<meta name="description" content="Setting the initial electro-magnetic fields for your simulation">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="zpic@edu">
+<meta property="og:title" content="Initial EM fields">
+<meta property="og:url" content="http://localhost:4000/documentation/python/eminit">
+
+
+  <meta property="og:description" content="Setting the initial electro-magnetic fields for your simulation">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/documentation/python/eminit">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+
+<!-- for mathjax support -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          zpic@edu
+          <span class="site-subtitle">PIC codes for plasma physics education</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About ZPIC</a>
+            </li><li class="masthead__menu-item">
+              <a href="/start">Getting started</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/examples">Examples</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000//" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/documentation" itemprop="item"><span itemprop="name">Documentation</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/python" itemprop="item"><span itemprop="name">Python</span></a>
+          <meta itemprop="position" content="3" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Initial EM fields</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/start"><span class="nav__sub-title">Getting started</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/start/docker">Running a Docker image</a></li>
+          
+            <li><a href="/start/download">Download ZPIC</a></li>
+          
+            <li><a href="/start/compile">Compiling the code</a></li>
+          
+            <li><a href="/start/compile/macosx">- Mac OS X</a></li>
+          
+            <li><a href="/start/compile/linux">- Linux</a></li>
+          
+            <li><a href="/start/compile/win64">- Windows (WSL)</a></li>
+          
+            <li><a href="/start/compile/msys2">- Windows (MSYS2)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/python"><span class="nav__sub-title">Using ZPIC with Python</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/python/start">Getting started with Python</a></li>
+          
+            <li><a href="/documentation/python/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/python/data">Simulation data</a></li>
+          
+            <li><a href="/documentation/python/save">Saving output</a></li>
+          
+            <li><a href="/documentation/python/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/python/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/python/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/python/eminit" class="active">Initial EM fields</a></li>
+          
+            <li><a href="/documentation/python/emext">External EM fields</a></li>
+          
+            <li><a href="/documentation/python/spectralsolver">Spectral EM field solver</a></li>
+          
+            <li><a href="/documentation/python/api">Python API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/c"><span class="nav__sub-title">Using ZPIC with C</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/c/start">Getting started with C</a></li>
+          
+            <li><a href="/documentation/c/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/c/diag">Simulation diagnostics</a></li>
+          
+            <li><a href="/documentation/c/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/c/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/c/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/c/api">C API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/examples"><span class="nav__sub-title">Examples</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/examples/#tutorials">Tutorial</a></li>
+          
+            <li><a href="/examples/#classroom-examples">Classroom examples</a></li>
+          
+            <li><a href="/examples/#landmark-papers">Landmark papers</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Initial EM fields">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Initial EM fields
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Initial EM fields</h4></header>
+              <ul class="toc__menu"><li><a href="#introduction">Introduction</a></li><li><a href="#setting-the-initial-em-fields">Setting the initial EM fields</a></li><li><a href="#setting-custom-initial-fields">Setting “custom” initial fields</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="introduction">Introduction</h2>
+
+<p>The EM codes in ZPIC work by advancing the EM fields in time using the electric current density from particle motion as a source term. The algorithm implcitly assumes that the initial fields in the simulation are self-consistent, and they will be evolved accordingly.</p>
+
+<h2 id="setting-the-initial-em-fields">Setting the initial EM fields</h2>
+
+<p>By default, the initial EM fields in ZPIC codes are set to 0. Other initial values can be set using <code class="language-plaintext highlighter-rouge">InitialField</code> objects and the <code class="language-plaintext highlighter-rouge">EMF.init_fld()</code>. The following types of initial fields are supported:</p>
+
+<ul>
+  <li>“<strong>none</strong>” - no initial field</li>
+  <li>“<strong>uniform</strong>” - spatially uniform field</li>
+  <li>“<strong>custom</strong>” - field defined by a custom function</li>
+</ul>
+
+<p>The initial electric and magnetic fields can be set separately. Please note that the method can only be called before the simulation starts. Currently only EM1D and EM2D support initial fields, adding this feature to the remaining codes is in the pipeline.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">InitialField</code> class constructor uses the following parameters:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">E_type</code> / <code class="language-plaintext highlighter-rouge">B_type</code> - Type of initial electric / magnetic field, must be one of:
+    <ul>
+      <li>“none” (default) - No initial field</li>
+      <li>“uniform” - Uniform initial field</li>
+      <li>“custom” - Custrom initial field</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">E_0</code> / <code class="language-plaintext highlighter-rouge">B_0</code> - Value of the initial electric / magnetic field when using the “uniform” type</li>
+  <li><code class="language-plaintext highlighter-rouge">E_custom</code> / <code class="language-plaintext highlighter-rouge">B_custom</code> - Function defining the initial electric / magnetic field when using the “custom” type</li>
+</ul>
+
+<p>The following example sets an initial uniform magnetic field $B_z = 1$ (in simulation units):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sim</span> <span class="o">=</span> <span class="n">em1d</span><span class="p">.</span><span class="n">Simulation</span><span class="p">(</span> <span class="p">...</span> <span class="p">)</span>
+<span class="n">init</span> <span class="o">=</span> <span class="n">em1d</span><span class="p">.</span><span class="n">InitialField</span><span class="p">(</span><span class="n">B_type</span> <span class="o">=</span> <span class="s">'uniform'</span><span class="p">,</span> <span class="n">B_0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">])</span>
+<span class="n">sim</span><span class="p">.</span><span class="n">emf</span><span class="p">.</span><span class="n">init_fld</span><span class="p">(</span> <span class="n">init</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="setting-custom-initial-fields">Setting “custom” initial fields</h2>
+
+<p>The “custom” functions defining initial fields must take exactly 2 arguments in 1D. These arguments are:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ix</code> - the cell index for which the field is being calculated</li>
+  <li><code class="language-plaintext highlighter-rouge">dx</code> - the cell size in simulation units</li>
+</ul>
+
+<p>This function must return a 3 value list of all the field components. Also note that the position of all field components is not the same inside the cell, and that should be taken into account when calculating the field values.</p>
+
+<p>The following example creates an initial sinusoidal field $B_z = \sin(x)^2$:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sin2</span><span class="p">(</span> <span class="n">ix</span><span class="p">,</span> <span class="n">dx</span> <span class="p">):</span>
+    <span class="c1"># Bz is located at the center of the cell
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">ix</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
+    <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">init</span> <span class="o">=</span> <span class="n">em1d</span><span class="p">.</span><span class="n">InitialField</span><span class="p">(</span><span class="n">B_type</span> <span class="o">=</span> <span class="s">'custom'</span><span class="p">,</span> <span class="n">B_custom</span> <span class="o">=</span> <span class="n">sin2</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<p>In 2D the function takes exactly 4 arguments:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ix</code> - the x cell index for which the field is being calculated</li>
+  <li><code class="language-plaintext highlighter-rouge">dx</code> - the x cell size in simulation units</li>
+  <li><code class="language-plaintext highlighter-rouge">iy</code> - the y cell index for which the field is being calculated</li>
+  <li><code class="language-plaintext highlighter-rouge">dy</code> - the y cell size in simulation units</li>
+</ul>
+
+<p>Just like in 1D, this function must return a 3 value list of all the field components, and the position of field components inside the cell should be taken into account when calculating the field values.</p>
+
+<p>The following example creates a circular magnetic field around the center of the box, falling off with $r^2$:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">initB</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">iy</span><span class="p">,</span><span class="n">dy</span><span class="p">):</span>
+    <span class="n">x0</span> <span class="o">=</span> <span class="mf">6.4</span>
+    <span class="n">y0</span> <span class="o">=</span> <span class="mf">6.4</span>
+    
+    <span class="n">x</span> <span class="o">=</span> <span class="n">ix</span><span class="o">*</span><span class="n">dx</span>       <span class="o">-</span> <span class="n">x0</span><span class="p">;</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">iy</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="n">dy</span> <span class="o">-</span> <span class="n">y0</span><span class="p">;</span>
+
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
+    <span class="n">bx</span> <span class="o">=</span> <span class="o">-</span><span class="n">y</span><span class="o">/</span><span class="n">r2</span><span class="p">;</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">ix</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span> <span class="o">-</span> <span class="n">x0</span><span class="p">;</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">iy</span><span class="o">*</span><span class="n">dy</span>       <span class="o">-</span> <span class="n">y0</span><span class="p">;</span>
+
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
+    <span class="n">by</span> <span class="o">=</span> <span class="n">x</span><span class="o">/</span><span class="n">r2</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">bx</span><span class="p">,</span><span class="n">by</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> 
+
+<span class="n">init</span> <span class="o">=</span> <span class="n">em2d</span><span class="p">.</span><span class="n">InitialField</span><span class="p">(</span><span class="n">B_type</span> <span class="o">=</span> <span class="s">'custom'</span><span class="p">,</span> <span class="n">B_custom</span> <span class="o">=</span> <span class="n">initB</span> <span class="p">)</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 zpic@edu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

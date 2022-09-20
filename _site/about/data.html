@@ -1,0 +1,367 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Data structures in ZPIC - zpic@edu</title>
+<meta name="description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="zpic@edu">
+<meta property="og:title" content="Data structures in ZPIC">
+<meta property="og:url" content="http://localhost:4000/about/data">
+
+
+  <meta property="og:description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/about/data">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+
+<!-- for mathjax support -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          zpic@edu
+          <span class="site-subtitle">PIC codes for plasma physics education</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About ZPIC</a>
+            </li><li class="masthead__menu-item">
+              <a href="/start">Getting started</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/examples">Examples</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000//" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/about" itemprop="item"><span itemprop="name">About</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Data structures in ZPIC</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/about"><span class="nav__sub-title">About</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/about/pic">The PIC algorithm</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/about/implementation"><span class="nav__sub-title">Implementation details</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/about/particles">Particles</a></li>
+          
+            <li><a href="/about/deposit">Current/charge deposit</a></li>
+          
+            <li><a href="/about/fields">Fields</a></li>
+          
+            <li><a href="/about/interpolation">Grid interpolation</a></li>
+          
+            <li><a href="/about/units">ZPIC Units</a></li>
+          
+            <li><a href="/about/data" class="active">Data structures</a></li>
+          
+            <li><a href="/about/timecenter">Time centering</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Data structures in ZPIC">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Data structures in ZPIC
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Data structures</h4></header>
+              <ul class="toc__menu"><li><a href="#particle-data">Particle data</a><ul><li><a href="#positions">Positions</a></li><li><a href="#velocities">Velocities</a></li></ul></li><li><a href="#electro-magnetic-fields">Electro-Magnetic fields</a></li><li><a href="#electric-currentcharge-density">Electric current/charge density</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="particle-data">Particle data</h2>
+
+<h3 id="positions">Positions</h3>
+
+<p>Given that all grid related operations for particles, namely field interpolation and charge/current deposition, require the particle position inside the simulation grid cell, particle positions in ZPIC are stored using two values: an integer value (<code class="language-plaintext highlighter-rouge">ix</code>) specifying the cell where the particle and a floating-point value (<code class="language-plaintext highlighter-rouge">x</code>) specifying the position inside the cell. This choice, as oposed to say storing only the particle position in reference to the simulation box boundary, increases significantly the accuracy of the interpolation calculation and ensures uniform numerical properties over the whole simulation grid. It also allows us to use single precision for particle positions, which would not be feasible otherwise. Position values are normalized to cell size, and are always in the $[ 0, 1 )$ range (meaning that a value $x = 1$ is oustside of the current cell). In 2D we use 2 integers (<code class="language-plaintext highlighter-rouge">ix</code>, <code class="language-plaintext highlighter-rouge">iy</code>) and 2 floating point values (<code class="language-plaintext highlighter-rouge">x</code>, <code class="language-plaintext highlighter-rouge">y</code>).</p>
+
+<h3 id="velocities">Velocities</h3>
+
+<p>All EM codes are relativistic, meaning that they use relativistic equations of motion for advancing the particles. These codes are expected to deal with multi-GeV particle energies, and as such, in ZPIC velocities are store as proper velocities, $\mathbf{u} = \gamma \mathbf{v}$, where $\gamma$ is the relativistic Lorentz factor, normalized to the speed of light, $c$. This avoids issues with loss of precision as the particle velocity approaches $c$. Also note that all EM codes use 3 velocity components, <code class="language-plaintext highlighter-rouge">ux</code>, <code class="language-plaintext highlighter-rouge">uy</code> and <code class="language-plaintext highlighter-rouge">uz</code>. Components not in the simulation domain (<code class="language-plaintext highlighter-rouge">y</code>, <code class="language-plaintext highlighter-rouge">z</code> in 1D, and <code class="language-plaintext highlighter-rouge">z</code> in 2D simulations) will not result in particle motion, but will contribute to electric current deposition.</p>
+
+<p>Electro-static codes are not relativistic, using classical equations of motion for advancing the particles, so only normal velocities are stored. For consistency in the choice of units, we also normalize these to the speed of light. Only velocity components in the simulation domain (<code class="language-plaintext highlighter-rouge">vx</code> in 1D) are stored.</p>
+
+<h2 id="electro-magnetic-fields">Electro-Magnetic fields</h2>
+
+<p>Field data in ZPIC is stored on a simple floating point grid. This grid includes additional cells before and after the simulation domain, that we refer to as “guard cells”. For example, in a 1D simulation grid with <code class="language-plaintext highlighter-rouge">nx</code> simulation cells, cell indices <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">nx-1</code> correspond to actual simulation cells, whereas cell indices <code class="language-plaintext highlighter-rouge">-1</code> or <code class="language-plaintext highlighter-rouge">nx</code> would correspond to guard cells.</p>
+
+<p>The use of guard cells greatly simplifies the implementation because the avoid the need to write specific code for fringe case, such as advancing the fields in the 1st cell, or interpolating the fields in the last one. After each field advance a separate routine updates the values in the guard cells according to the boundary conditions used.</p>
+
+<h2 id="electric-currentcharge-density">Electric current/charge density</h2>
+
+<p>The electric current/charge density is stored in a manner similar to the EM-field data. These grids also use guard cells, but the number of guard cells may be different from other grids.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 zpic@edu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

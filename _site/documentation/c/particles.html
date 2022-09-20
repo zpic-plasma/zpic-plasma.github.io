@@ -1,0 +1,663 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Particle species initialization - zpic@edu</title>
+<meta name="description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="zpic@edu">
+<meta property="og:title" content="Particle species initialization">
+<meta property="og:url" content="http://localhost:4000/documentation/c/particles">
+
+
+  <meta property="og:description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/documentation/c/particles">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+
+<!-- for mathjax support -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          zpic@edu
+          <span class="site-subtitle">PIC codes for plasma physics education</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About ZPIC</a>
+            </li><li class="masthead__menu-item">
+              <a href="/start">Getting started</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/examples">Examples</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000//" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/documentation" itemprop="item"><span itemprop="name">Documentation</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/c" itemprop="item"><span itemprop="name">C</span></a>
+          <meta itemprop="position" content="3" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Particle species initialization</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/start"><span class="nav__sub-title">Getting started</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/start/docker">Running a Docker image</a></li>
+          
+            <li><a href="/start/download">Download ZPIC</a></li>
+          
+            <li><a href="/start/compile">Compiling the code</a></li>
+          
+            <li><a href="/start/compile/macosx">- Mac OS X</a></li>
+          
+            <li><a href="/start/compile/linux">- Linux</a></li>
+          
+            <li><a href="/start/compile/win64">- Windows (WSL)</a></li>
+          
+            <li><a href="/start/compile/msys2">- Windows (MSYS2)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/python"><span class="nav__sub-title">Using ZPIC with Python</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/python/start">Getting started with Python</a></li>
+          
+            <li><a href="/documentation/python/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/python/data">Simulation data</a></li>
+          
+            <li><a href="/documentation/python/save">Saving output</a></li>
+          
+            <li><a href="/documentation/python/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/python/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/python/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/python/eminit">Initial EM fields</a></li>
+          
+            <li><a href="/documentation/python/emext">External EM fields</a></li>
+          
+            <li><a href="/documentation/python/spectralsolver">Spectral EM field solver</a></li>
+          
+            <li><a href="/documentation/python/api">Python API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/c"><span class="nav__sub-title">Using ZPIC with C</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/c/start">Getting started with C</a></li>
+          
+            <li><a href="/documentation/c/particles" class="active">Particle species</a></li>
+          
+            <li><a href="/documentation/c/diag">Simulation diagnostics</a></li>
+          
+            <li><a href="/documentation/c/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/c/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/c/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/c/api">C API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/examples"><span class="nav__sub-title">Examples</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/examples/#tutorials">Tutorial</a></li>
+          
+            <li><a href="/examples/#classroom-examples">Classroom examples</a></li>
+          
+            <li><a href="/examples/#landmark-papers">Landmark papers</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Particle species initialization">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Particle species initialization
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#introduction">Introduction</a></li><li><a href="#particle-injection---1d">Particle injection - 1D</a><ul><li><a href="#density-profile-types">Density profile types</a><ul><li><a href="#uniform">Uniform</a></li><li><a href="#step">Step</a></li><li><a href="#slab">Slab</a></li><li><a href="#ramp">Ramp</a></li><li><a href="#custom">Custom</a></li></ul></li></ul></li><li><a href="#particle-injection---2d">Particle Injection - 2D</a><ul><li><a href="#density-profile-types-1">Density profile types</a><ul><li><a href="#custom-1">Custom</a></li></ul></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="introduction">Introduction</h2>
+
+<p>Adding particle data to a ZPIC simulation is done using the <code class="language-plaintext highlighter-rouge">species</code> and <code class="language-plaintext highlighter-rouge">n_species</code> parameters of the <code class="language-plaintext highlighter-rouge">sim_new()</code> function. The <code class="language-plaintext highlighter-rouge">species</code> parameter is an array of <code class="language-plaintext highlighter-rouge">t_species</code> structure. Before calling <code class="language-plaintext highlighter-rouge">sim_new()</code> each item in this array must be initialized using the <code class="language-plaintext highlighter-rouge">spec_new()</code> function:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">spec_new</span><span class="p">(</span> <span class="n">t_species</span><span class="o">*</span> <span class="n">spec</span><span class="p">,</span> <span class="kt">char</span> <span class="n">name</span><span class="p">[],</span> <span class="kt">float</span> <span class="n">m_q</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ppc</span><span class="p">[],</span>
+    <span class="kt">float</span> <span class="n">ufl</span><span class="p">[],</span> <span class="kt">float</span> <span class="n">uth</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">nx</span><span class="p">[],</span> <span class="kt">float</span> <span class="n">box</span><span class="p">[],</span> <span class="kt">float</span> <span class="n">dt</span><span class="p">,</span>
+    <span class="n">t_density</span><span class="o">*</span> <span class="n">density</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<p>The parameters for this function are as follows:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">spec</code> - Pointer to <code class="language-plaintext highlighter-rouge">t_species</code> variable being initialized.</li>
+  <li><code class="language-plaintext highlighter-rouge">name</code> - Name for the species. This is used for diagnostic information only.</li>
+  <li><code class="language-plaintext highlighter-rouge">m_q</code> - Mass over charge ratio for particles in the species in simulation units (e.g. -1 for electrons)</li>
+  <li><code class="language-plaintext highlighter-rouge">ppc</code> - Reference number of particles per cell in each direction (scalar <code class="language-plaintext highlighter-rouge">int</code> in 1D codes)</li>
+  <li><code class="language-plaintext highlighter-rouge">ufl</code> - Initial fluid velocity for particle species (<code class="language-plaintext highlighter-rouge">float[3]</code>), set to NULL to use a 0 fluid velocity</li>
+  <li><code class="language-plaintext highlighter-rouge">uth</code> - Initial thermal velocity for particle species (<code class="language-plaintext highlighter-rouge">float[3]</code>), set to NULL to use a 0 thermal velocity</li>
+  <li><code class="language-plaintext highlighter-rouge">nx</code> - Simulation grid size</li>
+  <li><code class="language-plaintext highlighter-rouge">box</code> - Simulation physical box size in simulation units</li>
+  <li><code class="language-plaintext highlighter-rouge">dt</code> - Simulation time step in simulation units</li>
+  <li><code class="language-plaintext highlighter-rouge">density</code> - Pointer to <code class="language-plaintext highlighter-rouge">t_density</code> variable describing initial charge density, set to <code class="language-plaintext highlighter-rouge">NULL</code> to use a uniform density.</li>
+</ul>
+
+<p>The following example adds a particle species with “step like” density profile:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">sim_init</span><span class="p">(</span> <span class="n">t_simulation</span><span class="o">*</span> <span class="n">sim</span> <span class="p">){</span>
+
+    <span class="c1">// Simulation box</span>
+    <span class="kt">int</span>   <span class="n">nx</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="o">=</span> <span class="p">{</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">128</span> <span class="p">};</span>
+    <span class="kt">float</span> <span class="n">box</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">30</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">.</span><span class="mi">6</span> <span class="p">};</span>
+
+    <span class="c1">// Initialize particles</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">n_species</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="c1">// Use 4x2 particles per cell</span>
+    <span class="kt">int</span> <span class="n">ppc</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">};</span>
+
+    <span class="c1">// Density profile</span>
+    <span class="n">t_density</span> <span class="n">density</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">STEP</span><span class="p">,</span> <span class="p">.</span><span class="n">start</span> <span class="o">=</span> <span class="mi">30</span><span class="p">.</span><span class="mi">0</span> <span class="p">};</span>
+
+    <span class="n">t_species</span><span class="o">*</span> <span class="n">species</span> <span class="o">=</span> <span class="p">(</span><span class="n">t_species</span> <span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span> <span class="n">n_species</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span> <span class="n">t_species</span> <span class="p">));</span>
+    <span class="n">spec_new</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">species</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">"electrons"</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">ppc</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">density</span> <span class="p">);</span>
+
+    <span class="c1">//...</span>
+    <span class="c1">// Initialize Simulation data</span>
+    <span class="n">sim_new</span><span class="p">(</span> <span class="n">sim</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">ndump</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">n_species</span> <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>All particles in the same species share these parameters; if you require any of these parameters to change (e.g. initial fluid velocity) you will need to use additional species.</p>
+
+<h2 id="particle-injection---1d">Particle injection - 1D</h2>
+
+<p>In ZPIC all particles in a species have the same charge. Initializing a given density profile is done by varying the number of particles placed inside each simulation cell. The <code class="language-plaintext highlighter-rouge">ppc</code> parameter of the <code class="language-plaintext highlighter-rouge">spec_new()</code> function discussed above sets the reference number of particles for a density of 1 (in simulation units). The individual particle charge $q_p$ will respect:</p>
+
+\[n = \frac{ ppc \, q_p }{\Delta x}\]
+
+<p>with $\Delta x$ being the cell size, meaning that a cell with $ppc$ particles will have a charge density of $n$.</p>
+
+<p>To choose a different initial density profile we need to reate a <code class="language-plaintext highlighter-rouge">t_density</code> variable specifying the density profile parameters and use it in the <code class="language-plaintext highlighter-rouge">density</code> parameter of our <code class="language-plaintext highlighter-rouge">spec_new()</code> call. The <code class="language-plaintext highlighter-rouge">t_density</code> structure has the following fields:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Density parameters</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>n</td>
+      <td>Reference density (default 1.0)</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>Density profile type: UNIFORM (default), STEP, SLAB, RAMP, or CUSTOM</td>
+    </tr>
+    <tr>
+      <td>start</td>
+      <td>Start of the particle injection region (STEP, SLAB, RAMP)</td>
+    </tr>
+    <tr>
+      <td>end</td>
+      <td>End of the particle injection region (SLAB,RAMP)</td>
+    </tr>
+    <tr>
+      <td>ramp[2]</td>
+      <td>Density at the start (ramp[0]) and end (ramp[1]) of the particle injection region for type RAMP, normalized to $n$</td>
+    </tr>
+    <tr>
+      <td>custom</td>
+      <td>Pointer to a function defining an arbitrary density profile, normalized to $n$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>After defining a <code class="language-plaintext highlighter-rouge">t_density</code> variable, this must be supplied (by reference) as the last parameter of the <code class="language-plaintext highlighter-rouge">spec_new()</code> function:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Uniform density example</span>
+<span class="n">t_density</span> <span class="n">density</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">UNIFORM</span> <span class="p">};</span>
+
+<span class="c1">// (...)</span>
+<span class="n">spec_new</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">species</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">"electrons"</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">ppc</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">density</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="density-profile-types">Density profile types</h3>
+
+<h4 id="uniform">Uniform</h4>
+
+<p>Injects a uniform density <code class="language-plaintext highlighter-rouge">n</code>.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Uniform density example</span>
+<span class="n">t_density</span> <span class="n">density</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">UNIFORM</span> <span class="p">};</span>
+</code></pre></div></div>
+
+<h4 id="step">Step</h4>
+
+<p>Injects a step like density profile starting at position <code class="language-plaintext highlighter-rouge">start</code>, such that the density before this position is set to 0, and after this position it is set to <code class="language-plaintext highlighter-rouge">n</code>.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Step density example</span>
+<span class="n">t_density</span> <span class="n">density</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">STEP</span><span class="p">,</span> <span class="p">.</span><span class="n">start</span> <span class="o">=</span> <span class="mi">17</span><span class="p">.</span><span class="mi">5</span> <span class="p">};</span>
+</code></pre></div></div>
+
+<h4 id="slab">Slab</h4>
+
+<p>Injects a density profile that has a value of <code class="language-plaintext highlighter-rouge">n</code> between <code class="language-plaintext highlighter-rouge">start</code> and <code class="language-plaintext highlighter-rouge">end</code> and 0 otherwise.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Slab density example</span>
+<span class="n">t_density</span> <span class="n">density</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">SLAB</span><span class="p">,</span> <span class="p">.</span><span class="n">start</span> <span class="o">=</span> <span class="mi">17</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="p">.</span><span class="n">end</span> <span class="o">=</span> <span class="mi">22</span><span class="p">.</span><span class="mi">5</span> <span class="p">};</span>
+</code></pre></div></div>
+
+<h4 id="ramp">Ramp</h4>
+
+<p>Injects a density profile that varies linearly from <code class="language-plaintext highlighter-rouge">ramp[0]</code> at position <code class="language-plaintext highlighter-rouge">start</code> to <code class="language-plaintext highlighter-rouge">ramp[1]</code> at position <code class="language-plaintext highlighter-rouge">end</code>. The values of the <code class="language-plaintext highlighter-rouge">ramp</code> parameter are normalized to the reference density <code class="language-plaintext highlighter-rouge">n</code>, meaning that <code class="language-plaintext highlighter-rouge">ramp = 1.0</code>, corresponds to a density <code class="language-plaintext highlighter-rouge">n</code>.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Ramp density example</span>
+<span class="n">t_density</span> <span class="n">density</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">RAMP</span><span class="p">,</span>
+   <span class="p">.</span><span class="n">start</span> <span class="o">=</span> <span class="mi">17</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span>
+   <span class="p">.</span><span class="n">end</span> <span class="o">=</span> <span class="mi">22</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span>
+   <span class="p">.</span><span class="n">ramp</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h4 id="custom">Custom</h4>
+
+<p>The custom type injects a density profile set by a user defined function. The function must accept two parameters: one parameter of type <code class="language-plaintext highlighter-rouge">float</code> (the position at which the density is to be evaluated in simulation units) and a <code class="language-plaintext highlighter-rouge">void *</code> pointer (which can be used to send additional data to the function). It must return the density value as a value of type <code class="language-plaintext highlighter-rouge">float</code>. Note that density values are normalized to <code class="language-plaintext highlighter-rouge">n</code>.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Custom density example</span>
+<span class="c1">// The density will oscillate between 0 and 0.1</span>
+<span class="c1">// note the n parameter below</span>
+
+<span class="kt">float</span> <span class="nf">custom_n0</span><span class="p">(</span> <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">data</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">M_PI</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">M_PI</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">//(...)</span>
+
+<span class="n">t_density</span> <span class="n">density</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">CUSTOM</span><span class="p">,</span>
+  <span class="p">.</span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span>
+  <span class="p">.</span><span class="n">custom</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">custom_n0</span><span class="p">,</span>
+  <span class="p">.</span><span class="n">custom_data</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="particle-injection---2d">Particle Injection - 2D</h2>
+
+<p>Particle injection in 2D is similar to 1D, with a couple of differences:</p>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">ppc</code> parameter is a two element integer array specifying the number of particles per cell in both directions. The total number of particles per cell will be the product of these 2 numbers.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">RAMP</code> density profile is not available (use the <code class="language-plaintext highlighter-rouge">CUSTOM</code> profile instead)</li>
+  <li>The <code class="language-plaintext highlighter-rouge">CUSTOM</code> density profile requires that the density can be described by a separable function in the $x$ and $y$ coordinates, i.e., $n(x,y) = n_x(x) \times n_y(y)$, and these two functions are defined separably.</li>
+</ul>
+
+<p>The <code class="language-plaintext highlighter-rouge">t_density</code> structure in 2D has the following fields:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Density parameters</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>n</td>
+      <td>Reference density (default 1.0)</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>Density profile type: <code class="language-plaintext highlighter-rouge">UNIFORM</code> (default), <code class="language-plaintext highlighter-rouge">STEP</code>, <code class="language-plaintext highlighter-rouge">SLAB</code>, or <code class="language-plaintext highlighter-rouge">CUSTOM</code></td>
+    </tr>
+    <tr>
+      <td>start</td>
+      <td>Start of the particle injection region (<code class="language-plaintext highlighter-rouge">STEP</code>, <code class="language-plaintext highlighter-rouge">SLAB</code>)</td>
+    </tr>
+    <tr>
+      <td>end</td>
+      <td>End of the particle injection region (<code class="language-plaintext highlighter-rouge">SLAB</code>)</td>
+    </tr>
+    <tr>
+      <td>custom_x</td>
+      <td>Pointer to a function defining the $n_x(x)$ function of a custom density profile $n(x,y) = n_x(x) \times n_y(y)$, normalized to <code class="language-plaintext highlighter-rouge">n</code></td>
+    </tr>
+    <tr>
+      <td>custom_y</td>
+      <td>Pointer to a function defining the $n_y(y)$ function of a custom density profile $n(x,y) = n_x(x) \times n_y(y)$, normalized to <code class="language-plaintext highlighter-rouge">n</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="density-profile-types-1">Density profile types</h3>
+
+<p>The types <code class="language-plaintext highlighter-rouge">UNIFORM</code>, <code class="language-plaintext highlighter-rouge">STEP</code>, and <code class="language-plaintext highlighter-rouge">SLAB</code> work exactly the same way as in the 1D version.</p>
+
+<h4 id="custom-1">Custom</h4>
+
+<p>The custom type injects a density profile set by two user defined functions. The functions must accept two parameters: one parameter of type <code class="language-plaintext highlighter-rouge">float</code> (the position $x$ or $y$ at which the density is to be evaluated in simulation units) and a <code class="language-plaintext highlighter-rouge">void *</code> pointer (which can be used to send additional data to the function). They must return the density value as a value of type <code class="language-plaintext highlighter-rouge">float</code>. Note that density values are normalized to <code class="language-plaintext highlighter-rouge">n</code>.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 2D Custom density example</span>
+<span class="c1">// The 2D density will be the product of nx * ny</span>
+<span class="c1">// It will oscillate between 0 and 0.1 - note the n parameter below</span>
+
+<span class="kt">float</span> <span class="nf">nx</span><span class="p">(</span> <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">data</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">M_PI</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">M_PI</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">float</span> <span class="nf">ny</span><span class="p">(</span> <span class="kt">float</span> <span class="n">y</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">data</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">cos</span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">M_PI</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">M_PI</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">(...)</span>
+
+<span class="n">t_density</span> <span class="n">density</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">CUSTOM</span><span class="p">,</span>
+  <span class="p">.</span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span>
+  <span class="p">.</span><span class="n">custom_x</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">nx</span><span class="p">,</span>
+  <span class="p">.</span><span class="n">custom_y</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ny</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 zpic@edu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

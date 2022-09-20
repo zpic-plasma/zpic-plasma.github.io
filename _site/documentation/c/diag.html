@@ -1,0 +1,574 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Simulation diagnostics - zpic@edu</title>
+<meta name="description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="zpic@edu">
+<meta property="og:title" content="Simulation diagnostics">
+<meta property="og:url" content="http://localhost:4000/documentation/c/diag">
+
+
+  <meta property="og:description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/documentation/c/diag">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+
+<!-- for mathjax support -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          zpic@edu
+          <span class="site-subtitle">PIC codes for plasma physics education</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About ZPIC</a>
+            </li><li class="masthead__menu-item">
+              <a href="/start">Getting started</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/examples">Examples</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000//" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/documentation" itemprop="item"><span itemprop="name">Documentation</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/c" itemprop="item"><span itemprop="name">C</span></a>
+          <meta itemprop="position" content="3" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Simulation diagnostics</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/start"><span class="nav__sub-title">Getting started</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/start/docker">Running a Docker image</a></li>
+          
+            <li><a href="/start/download">Download ZPIC</a></li>
+          
+            <li><a href="/start/compile">Compiling the code</a></li>
+          
+            <li><a href="/start/compile/macosx">- Mac OS X</a></li>
+          
+            <li><a href="/start/compile/linux">- Linux</a></li>
+          
+            <li><a href="/start/compile/win64">- Windows (WSL)</a></li>
+          
+            <li><a href="/start/compile/msys2">- Windows (MSYS2)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/python"><span class="nav__sub-title">Using ZPIC with Python</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/python/start">Getting started with Python</a></li>
+          
+            <li><a href="/documentation/python/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/python/data">Simulation data</a></li>
+          
+            <li><a href="/documentation/python/save">Saving output</a></li>
+          
+            <li><a href="/documentation/python/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/python/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/python/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/python/eminit">Initial EM fields</a></li>
+          
+            <li><a href="/documentation/python/emext">External EM fields</a></li>
+          
+            <li><a href="/documentation/python/spectralsolver">Spectral EM field solver</a></li>
+          
+            <li><a href="/documentation/python/api">Python API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/c"><span class="nav__sub-title">Using ZPIC with C</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/c/start">Getting started with C</a></li>
+          
+            <li><a href="/documentation/c/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/c/diag" class="active">Simulation diagnostics</a></li>
+          
+            <li><a href="/documentation/c/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/c/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/c/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/c/api">C API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/examples"><span class="nav__sub-title">Examples</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/examples/#tutorials">Tutorial</a></li>
+          
+            <li><a href="/examples/#classroom-examples">Classroom examples</a></li>
+          
+            <li><a href="/examples/#landmark-papers">Landmark papers</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Simulation diagnostics">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Simulation diagnostics
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Simulation diagnostics</h4></header>
+              <ul class="toc__menu"><li><a href="#introduction">Introduction</a></li><li><a href="#electromagnetic-field-diagnostics">Electromagnetic Field Diagnostics</a></li><li><a href="#electric-current-diagnostics">Electric Current Diagnostics</a></li><li><a href="#electric-charge-diagnostics">Electric Charge Diagnostics</a></li><li><a href="#particle-diagnostics">Particle diagnostics</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="introduction">Introduction</h2>
+
+<p>Simulation diagnostics are defined in the <code class="language-plaintext highlighter-rouge">sim_report()</code> function of the input file. This function will be called from the simulation main loop at a frequency defined by the <code class="language-plaintext highlighter-rouge">ndump</code> parameter of the <code class="language-plaintext highlighter-rouge">sim_init()</code> function. All input files must define this function.</p>
+
+<p>Here’s an example from a 2D Weibel instability simulation:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">sim_init</span><span class="p">(</span> <span class="n">t_simulation</span><span class="o">*</span> <span class="n">sim</span> <span class="p">){</span>
+  <span class="c1">//...</span>
+  
+  <span class="c1">// Diagnostic frequency - call sim_report() every 50 iterations</span>
+  <span class="kt">int</span> <span class="n">ndump</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+
+  <span class="c1">// Initialize Simulation data</span>
+  <span class="n">sim_new</span><span class="p">(</span> <span class="n">sim</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">ndump</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">n_species</span> <span class="p">);</span>
+
+  <span class="c1">//...</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">sim_report</span><span class="p">(</span> <span class="n">t_simulation</span><span class="o">*</span> <span class="n">sim</span> <span class="p">){</span>
+  <span class="c1">// Bx, By</span>
+  <span class="n">emf_report</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">sim</span> <span class="o">-&gt;</span> <span class="n">emf</span><span class="p">,</span> <span class="n">BFLD</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
+  <span class="n">emf_report</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">sim</span> <span class="o">-&gt;</span> <span class="n">emf</span><span class="p">,</span> <span class="n">BFLD</span><span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
+
+  <span class="c1">// Jz</span>
+  <span class="n">current_report</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">sim</span> <span class="o">-&gt;</span> <span class="n">current</span><span class="p">,</span> <span class="mi">2</span> <span class="p">);</span>
+
+  <span class="c1">// electron and positron density</span>
+  <span class="n">spec_report</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">sim</span> <span class="o">-&gt;</span> <span class="n">species</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">CHARGE</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span> <span class="p">);</span>
+  <span class="n">spec_report</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">sim</span> <span class="o">-&gt;</span> <span class="n">species</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">CHARGE</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span> <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="electromagnetic-field-diagnostics">Electromagnetic Field Diagnostics</h2>
+
+<p>Electromagnetic field diagnostics are done through a call to the <code class="language-plaintext highlighter-rouge">emf_report()</code> function:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">emf_report</span><span class="p">(</span> <span class="n">t_emf</span> <span class="o">*</span><span class="n">emf</span><span class="p">,</span> <span class="kt">char</span> <span class="n">field</span><span class="p">,</span> <span class="kt">char</span> <span class="n">fc</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<p>This function may be called multiple times inside <code class="language-plaintext highlighter-rouge">sim_report()</code> with the following parameters:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>EMF report parameters</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>field</td>
+      <td>Field to save. Must be one of <code class="language-plaintext highlighter-rouge">BFLD</code> or <code class="language-plaintext highlighter-rouge">EFLD</code></td>
+    </tr>
+    <tr>
+      <td>fc</td>
+      <td>Field component to save. Must be one of 0(x), 1(y), or 2(z).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="electric-current-diagnostics">Electric Current Diagnostics</h2>
+
+<p>Electric Current diagnostics are done through a call to the <code class="language-plaintext highlighter-rouge">current_report()</code> function:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">current_report</span><span class="p">(</span> <span class="k">const</span> <span class="n">t_current</span> <span class="o">*</span><span class="n">emf</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">field</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">fc</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<p>This function may be called multiple times inside <code class="language-plaintext highlighter-rouge">sim_report()</code> with the following parameters:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Current report parameters</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>fc</td>
+      <td>Electric current component to save. Must be one of 0(x), 1(y), or 2(z).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="electric-charge-diagnostics">Electric Charge Diagnostics</h2>
+
+<p>Global electric Charge diagnostics are done through a call to the <code class="language-plaintext highlighter-rouge">charge_report()</code> function:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">charge_report</span><span class="p">(</span> <span class="n">t_current</span> <span class="o">*</span><span class="n">charge</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<p>This function is only available in spectral code (es1d, em1ds, em2ds) as this quantity is not required for the finit difference models.</p>
+
+<p>This function should only be called once inside <code class="language-plaintext highlighter-rouge">sim_report()</code>.</p>
+
+<h2 id="particle-diagnostics">Particle diagnostics</h2>
+
+<p>Particle species diagnostics are done through a call to the <code class="language-plaintext highlighter-rouge">spec_report()</code> function:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">spec_report</span><span class="p">(</span> <span class="n">t_species</span> <span class="o">*</span><span class="n">spec</span><span class="p">,</span> <span class="kt">int</span> <span class="n">rep_type</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pha_nx</span><span class="p">[],</span> <span class="kt">float</span> <span class="n">pha_range</span><span class="p">[][</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<p>This function may be called multiple times inside <code class="language-plaintext highlighter-rouge">sim_report()</code> with the following parameters:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>EMF report parameters</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>rep_type</td>
+      <td>Type of diagnostic. Can be set to <code class="language-plaintext highlighter-rouge">CHARGE</code>, <code class="language-plaintext highlighter-rouge">PARTICLES</code>, or the <code class="language-plaintext highlighter-rouge">PHASESPACE()</code> macro</td>
+    </tr>
+    <tr>
+      <td>pha_nx</td>
+      <td>Dimensions (number of grid points) of the grid for phasespace density diagnostics</td>
+    </tr>
+    <tr>
+      <td>pha_range</td>
+      <td>Physical grid size for phasespace density diagnostics</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This function is meant to be called per simulation species (set by the <code class="language-plaintext highlighter-rouge">spec</code> parameter), and acting only on the specified species.</p>
+
+<p>The following types of reports are available:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">CHARGE</code> - Saves the charge density of the species. This density is calculated in the simulation grid. The parameters <code class="language-plaintext highlighter-rouge">pha_nx</code> and <code class="language-plaintext highlighter-rouge">pha_range</code> should be set to <code class="language-plaintext highlighter-rouge">NULL</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">PARTICLES</code> -  Saves the complete particle dataset: position, (generalized) velocity, charge for all particles in the species. The parameters <code class="language-plaintext highlighter-rouge">pha_nx</code> and <code class="language-plaintext highlighter-rouge">pha_range</code> should be set to <code class="language-plaintext highlighter-rouge">NULL</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">PHASESPACE(ax1,ax2)</code> - Saves the specified phasespace density for this plot. The phasespace parameters are controlled through the following parameters:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ax1</code>, <code class="language-plaintext highlighter-rouge">ax2</code> - Define the phasespace axis. Can be set to <code class="language-plaintext highlighter-rouge">X1</code>, <code class="language-plaintext highlighter-rouge">X2</code> (2D only), <code class="language-plaintext highlighter-rouge">U1</code>, <code class="language-plaintext highlighter-rouge">U2</code>, <code class="language-plaintext highlighter-rouge">U3</code> (EM codes) or <code class="language-plaintext highlighter-rouge">V1</code> (ES codes).</li>
+      <li><code class="language-plaintext highlighter-rouge">pha_nx</code> - Defines the number of grid points in each direction for the phasespace density grid.</li>
+      <li><code class="language-plaintext highlighter-rouge">pha_range</code> - Defines the physical limits (in simulation units) of the phasespace density grid in each direction.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>In the following example, a simulation with two species saves diagnostic information for the charge density and $(x_1,u_1)$ phasespace density of species 0, and the complete particle dataset for species 1:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">sim_report</span><span class="p">(</span> <span class="n">t_simulation</span><span class="o">*</span> <span class="n">sim</span> <span class="p">){</span>
+
+  <span class="n">spec_report</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">sim</span> <span class="o">-&gt;</span> <span class="n">species</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">CHARGE</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span> <span class="p">);</span>
+  <span class="n">spec_report</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">sim</span> <span class="o">-&gt;</span> <span class="n">species</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">PARTICLES</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span> <span class="p">);</span>
+
+  <span class="k">const</span> <span class="kt">int</span> <span class="n">pha_nx</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1024</span><span class="p">,</span><span class="mi">512</span><span class="p">};</span>
+  <span class="k">const</span> <span class="kt">float</span> <span class="n">pha_range</span><span class="p">[][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">{</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">.</span><span class="mi">0</span><span class="p">},</span> <span class="p">{</span><span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="o">+</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">}</span> <span class="p">};</span>
+  <span class="n">spec_report</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">sim</span> <span class="o">-&gt;</span> <span class="n">species</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">PHASESPACE</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span><span class="n">U1</span><span class="p">),</span> <span class="n">pha_nx</span><span class="p">,</span> <span class="n">pha_range</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 zpic@edu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

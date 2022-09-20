@@ -1,0 +1,446 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>ZPIC Examples - zpic@edu</title>
+<meta name="description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="zpic@edu">
+<meta property="og:title" content="ZPIC Examples">
+<meta property="og:url" content="http://localhost:4000/examples/">
+
+
+  <meta property="og:description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/examples/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+
+
+
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          zpic@edu
+          <span class="site-subtitle">PIC codes for plasma physics education</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About ZPIC</a>
+            </li><li class="masthead__menu-item">
+              <a href="/start">Getting started</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/examples">Examples</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000//" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        <li class="current">ZPIC Examples</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/start"><span class="nav__sub-title">Getting started</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/start/docker">Running a Docker image</a></li>
+          
+            <li><a href="/start/download">Download ZPIC</a></li>
+          
+            <li><a href="/start/compile">Compiling the code</a></li>
+          
+            <li><a href="/start/compile/macosx">- Mac OS X</a></li>
+          
+            <li><a href="/start/compile/linux">- Linux</a></li>
+          
+            <li><a href="/start/compile/win64">- Windows (WSL)</a></li>
+          
+            <li><a href="/start/compile/msys2">- Windows (MSYS2)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/python"><span class="nav__sub-title">Using ZPIC with Python</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/python/start">Getting started with Python</a></li>
+          
+            <li><a href="/documentation/python/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/python/data">Simulation data</a></li>
+          
+            <li><a href="/documentation/python/save">Saving output</a></li>
+          
+            <li><a href="/documentation/python/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/python/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/python/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/python/eminit">Initial EM fields</a></li>
+          
+            <li><a href="/documentation/python/emext">External EM fields</a></li>
+          
+            <li><a href="/documentation/python/spectralsolver">Spectral EM field solver</a></li>
+          
+            <li><a href="/documentation/python/api">Python API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/c"><span class="nav__sub-title">Using ZPIC with C</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/c/start">Getting started with C</a></li>
+          
+            <li><a href="/documentation/c/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/c/diag">Simulation diagnostics</a></li>
+          
+            <li><a href="/documentation/c/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/c/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/c/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/c/api">C API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/examples"><span class="nav__sub-title">Examples</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/examples/#tutorials">Tutorial</a></li>
+          
+            <li><a href="/examples/#classroom-examples">Classroom examples</a></li>
+          
+            <li><a href="/examples/#landmark-papers">Landmark papers</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="ZPIC Examples">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">ZPIC Examples
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> ZPIC Examples</h4></header>
+              <ul class="toc__menu"><li><a href="#contributing">Contributing</a></li><li><a href="#tutorials">Tutorials</a></li><li><a href="#classroom-examples">Classroom examples</a></li><li><a href="#landmark-papers">Landmark papers</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>ZPIC makes available a set of well documented Jupyter notebooks, with example problems of textbook and advanced plasma mechanisms, ranging from Debye shielding, to EM waves in density ramps and kinetic instabilities, as well as notebooks that reproduce and extend the work done in seminal plasma physics papers.</p>
+
+<p>If you haven’t, make sure you start with the <a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/tutorial/ZPIC.ipynb">ZPIC</a> notebook that covers the basic usage of ZPIC in these environments.</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>We invite contributions to the <strong>ZPIC</strong> codes and repository of test problems, to be made freely available to the community. Come find us on <a href="https://github.com/ricardo-fonseca/zpic">GitHub</a>.</p>
+
+<h2 id="tutorials">Tutorials</h2>
+
+<p>Notebooks introducing code usage and functionalities:</p>
+
+<ul>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/tutorial/ZPIC.ipynb">ZPIC</a> - Main tutorial file, <strong>be sure to start here</strong>;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/tutorial/Saving%20results.ipynb">Saving Results</a> - Saving simulation results to disk;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/tutorial/Animation.ipynb">Animation</a> - Ceating animations from your simulations;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/tutorial/External%20Fields.ipynb">External Fields</a> - Using external (constant) EM fields in your simulation;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/tutorial/Initial%20Fields.ipynb">Initial Fields</a> - Setting the initial EM fields for your simulation;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/tutorial/Density.ipynb">Density</a> - Setting the density profile of particle species;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/tutorial/Thermal%20Distribution.ipynb">Thermal distribution</a> - Setting the thermal distribution of particle species;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/tutorial/Cathode.ipynb">Cathode</a> - Implementing a cathode (particle injection from simulation wall);</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/tutorial/Custom%20velocity%20distribution.ipynb">Custom velocity distribution</a> - Implementing custom (arbitrary) intial velocity distributions;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/tutorial/Laser%20Pulses.ipynb">Laser Pulses</a> - Launching laser pulses in ZPIC simulations.</li>
+</ul>
+
+<h2 id="classroom-examples">Classroom examples</h2>
+
+<p>Examples of ZPIC notebooks that can be used in a classroom to showcase some of the most fundamental plasma physics phenomena:</p>
+
+<ul>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/classroom/Field%20solver%20dispersion.ipynb">Field solver dispersion</a> - Analyses the different dispersion properties of the field solvers used in finite difference and spectral codes;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/classroom/Electron%20Plasma%20Waves.ipynb">Electron Plasma Waves</a> - Focuses on electrostatic and electromagnetic plasma waves in unmagnetized plasmas;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/classroom/O-X%20Waves.ipynb">O-X Waves</a> - Studies electromagnetic waves in a magnetized plasma, in particular polarized either along the applied magnetic fields (O-waves) or perpendicular to it (X-waves);</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/classroom/R-L%20Waves.ipynb">R-L Waves</a> - Studies electromagnetic waves in a magnetized plasma, in particular waves propagating along the applied magnetic field;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/classroom/Debye%20Shielding.ipynb">Debye Shielding</a> - Focuses on Debye shielding;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/classroom/Faraday%20Rotation.ipynb">Faraday Rotation</a> - Observation of the Faraday rotation effect;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/classroom/Two-Stream.ipynb">Two-Stream</a> - Numerical simulations of the Two-Stream instability using an electromagnetic code;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/classroom/Electrostatic%20Two-Stream.ipynb">Electrostatic Two-Stream</a> - Numerical simulations of the Two-Stream instability using an electrostatic code;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/classroom/LWFA%201D.ipynb">LWFA 1D</a> - Numerical simulations of a laser wakefield accelerator in 1D;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/classroom/LWFA%202D.ipynb">LWFA 2D</a> - Numerical simulations of a laser wakefield accelerator in 2D;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/classroom/PWFA%201D.ipynb">PWFA 1D</a> - Numerical simulations of a plasma wakefield accelerator in 1D;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/classroom/PBWA%201D.ipynb">PBWA 1D</a> - Numerical simulations of a plasma beat wave accelerator in 1D;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/classroom/Weibel.ipynb">Weibel</a> - Demonstration of the Weibel (electromagnetic filamentation) instability in the collision of neutral electron/positron plasma clouds;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/classroom/Coulomb%20Collisions.ipynb">Coulomb Collisions</a> - Study of Coulomb Collisions / Rutherford scattering;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/classroom/Diamagnetic%20Drift.ipynb">Diamagnetic Drift</a> - Focuses on the diamagnetic drift (or diamagnetic current), a fluid drift in which a current arrises in a magnetized plasma with a given density gradient;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/classroom/ExB%20Drift.ipynb">E×B Drift</a> - Studies of single particle <strong>E</strong>×<strong>B</strong> drifts;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/classroom/Magnetic%20Bottle.ipynb">Magnetic Bottle</a> - Numerical studies of the magnetic bottle confinement scheme;</li>
+</ul>
+
+<h2 id="landmark-papers">Landmark papers</h2>
+
+<p>Notebooks reproducing and extending the work done in seminal plasma physics papers:</p>
+
+<ul>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/papers/Tajima%20and%20Dawson%201979.ipynb">Tajima and Dawson (1979)</a> - Laser Electron Accelerator, Physical Review Letters, Volume 43, Number 4, July 1979, <a href="https://doi.org/10.1103/PhysRevLett.43.267">DOI: 10.1103/PhysRevLett.43.267</a>;</li>
+  <li><a href="https://github.com/zpic-plasma/zpic/blob/master/python/notebooks/papers/Morse%20and%20Nielsen%201971.ipynb">Morse and Nielsen (1971)</a> - Numerical Simulation of the Weibel Instability in One and Two Dimensions, The Physics of Fluids, Volume 14, Number 4, April 1971, <a href="https://doi.org/10.1063/1.1693518">DOI: 10.1063/1.1693518</a>.</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 zpic@edu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,394 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Electromagnetic Fields - zpic@edu</title>
+<meta name="description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="zpic@edu">
+<meta property="og:title" content="Electromagnetic Fields">
+<meta property="og:url" content="http://localhost:4000/about/fields">
+
+
+  <meta property="og:description" content="Suite of Particle-in-Cell codes for plasma physics education">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/about/fields">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+
+<!-- for mathjax support -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          zpic@edu
+          <span class="site-subtitle">PIC codes for plasma physics education</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About ZPIC</a>
+            </li><li class="masthead__menu-item">
+              <a href="/start">Getting started</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/examples">Examples</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000//" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/about" itemprop="item"><span itemprop="name">About</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Electromagnetic Fields</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/about"><span class="nav__sub-title">About</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/about/pic">The PIC algorithm</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/about/implementation"><span class="nav__sub-title">Implementation details</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/about/particles">Particles</a></li>
+          
+            <li><a href="/about/deposit">Current/charge deposit</a></li>
+          
+            <li><a href="/about/fields" class="active">Fields</a></li>
+          
+            <li><a href="/about/interpolation">Grid interpolation</a></li>
+          
+            <li><a href="/about/units">ZPIC Units</a></li>
+          
+            <li><a href="/about/data">Data structures</a></li>
+          
+            <li><a href="/about/timecenter">Time centering</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Electromagnetic Fields">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Electromagnetic Fields
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> EM Fields</h4></header>
+              <ul class="toc__menu"><li><a href="#field-advance">Field Advance</a><ul><li><a href="#finite-difference-field-solver">Finite-difference field solver</a></li><li><a href="#pseudo-spectral-field-solvers">Pseudo-spectral field solvers</a></li><li><a href="#which-field-solver-should-i-use">Which field solver should I use?</a></li></ul></li><li><a href="#dispersion-relation">Dispersion relation</a></li><li><a href="#neutralizing-background">Neutralizing background</a></li><li><a href="#references">References</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="field-advance">Field Advance</h2>
+
+<p>After advancing the particles and depositing the charge/current density, the field quantities are then advanced from time $t$ to time $t + \Delta t$. In ZPIC codes this can either be achieved using a finite difference method (<code class="language-plaintext highlighter-rouge">em1d</code>, <code class="language-plaintext highlighter-rouge">em2d</code>) or a spectral method (<code class="language-plaintext highlighter-rouge">em1ds</code>, <code class="language-plaintext highlighter-rouge">em2ds</code>).</p>
+
+<h3 id="finite-difference-field-solver">Finite-difference field solver</h3>
+
+<p>The finite-difference field solver in ZPIC is a local Maxwell solver that is equivalent to the Finite Difference Time Domain (FDTD) method using a Yee mesh [Yee 1966], adding the contribution of the plasma currents to the electrical field advance equation. This method approximates the spatial derivatives using finite differences. Electric and magnetic quantities are defined in different in a staggered grid allowing for second order accuracy in space for this operator. In ZPIC we chose to place the charge point at the lower left corner of the simulation cell</p>
+
+<p>The standard FDTD method requires that the electric and magnetic field to be also non-time centered. However, as we saw above, this is a requirement for the particle push. To overcome this issue, we follow the method proposed by Boris that splits the magnetic field integration into 2 steps. The algorithm first advances the magnetic field from time $t$ to time $t + \Delta t/2$ using the electric field values at time $t$, then performs a standard electric field advance from $t$ to $t + \Delta t$ using the magnetic field and current density defined at time $t + \Delta t/2$, and finally advances the magnetic field from $t + \Delta t/2$ to $t + \Delta t$. This method has been demonstrated to have the same accuracy as the FDTD method, while allowing the electric and magnetic fields to be time centered, and not requiring any additional storage for the magnetic field.</p>
+
+<h3 id="pseudo-spectral-field-solvers">Pseudo-spectral field solvers</h3>
+
+<p>Alternatively to (spatial) finite difference methods, we can use spectral methods to represent the spatial derivates [Dawson 1983 and references therein]. In these methods the field equations are advanced in Fourier space, making use of fast fourier transforms (FFT). To facilitate this we split $\mathbf{E}$ and $\mathbf{j}$ into transverse and longitudinal components with respect to the wave vector $\mathbf{k}$; $\mathbf{B}$ has only transverse components. The transverse parts of $\mathbf{E}$ and $\mathbf{B}$ are then advanced in time using the transverse part of $\mathbf{j}$. The longitudinal part of $\mathbf{E}$ is then calculated from the charge density by solving Poisson’s equations. The pseudo-spectral methods therefore require that the charge density for the particles, defined at $t + \Delta t$ as also been deposited.</p>
+
+<p>The simplest method for advancing the (transverse) field equations in time is similar to the strategy described for the finite difference solver described above: transverse $\mathbf{E}$ and $\mathbf{B}$ fields are advanced using a leap-frog scheme; to maintain time-centering of field quantities, we first advance $\mathbf{B}$ half a time step, then advance $\mathbf{E}$ a full time step, and finally advance $\mathbf{B}$ another half time step. This is known as the “Pseudo-spectral time domain” (<strong>PSTD</strong>) method [Liu 1997].</p>
+
+<p>Alternatively, instead of using a finite difference in time approach, we may advance the field equations in time using an exact analytical solution in Fourier space. The method proposed by [Haber 1973] is exact for plasma currents that are constant during the time step, is free of electromagnetic wave numerical dispersion for wave numbers that are properly resolved by the simulation grid. This is known as the “Pseudo-spectral analytical time domain” (<strong>PSATD</strong>) method. Both transverse $\mathbf{E}$ and $\mathbf{B}$ are advanced simultaneously so the time-centering is preserved.</p>
+
+<h3 id="which-field-solver-should-i-use">Which field solver should I use?</h3>
+
+<p>All the methods available have different properties, making them more suitable in some scenarios. The main advantages of the <strong>FDTD</strong> solver are the posibility of using a moving simulation window and/or absorbing boundary conditions. Pseudo-spectral methods have better dispersion relation properties and allow more freedom in the choice of simulation time steps, but are limited to periodic boundaries.</p>
+
+<h2 id="dispersion-relation">Dispersion relation</h2>
+
+<p>All 3 solvers yield different dispersion relations for EM waves:</p>
+
+<ul>
+  <li><strong>FDTD</strong> - The dispersion relation for EM waves is always sub-luminal; best results are obtained by choosing the largest possible time step (just below the CFL condition).</li>
+  <li><strong>PSTD</strong> - The dispersion relation for EM waves is always super-luminal; best results are obtained by choosing smaller time steps.</li>
+  <li><strong>PSATD</strong> - The dispersion relation for EM waves is always correct.</li>
+</ul>
+
+<p>Please see the example <a href="/classroom/Field%20solver%20dispersion.ipynb">Dispersion relation</a> notebook for a comparison of the 3 types of field solver.</p>
+
+<h2 id="neutralizing-background">Neutralizing background</h2>
+
+<p>When using the finite difference models, the code will always behave as if the total charge density was initially zero, even when this is not the case. This effect is generally described as having the code add a neutralizing background; however, for finite difference models, this is simply a consequence of the way the field solver is implemented, and no actual addition takes place. So to model a plasma with a fixed ion background, it is enough to add the electron species, and no additional particle species are required.</p>
+
+<p>For the spectral models this is no longer the case, and if required a neutralizing background must be explicitly added.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>Dawson J M 1983, <em>Rev. Mod. Physs</em>, <strong>55</strong>(2), 403-445</li>
+  <li>Haber I et al 1973 <em>Proceedings of the 6th conference on the Numerical Simulation of Plasmas</em>, Berkeley, CA</li>
+  <li>Liu QH 1997, <em>Micro. Opt. Tech. Lett.</em>, <strong>15</strong>(3), 158-165</li>
+  <li>Yee K 1966 <em>IEEE Trans. Ant. Prop.</em>  <strong>AP14</strong> 302-307</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 zpic@edu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

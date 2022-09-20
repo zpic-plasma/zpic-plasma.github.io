@@ -1,0 +1,522 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Saving simulation data - zpic@edu</title>
+<meta name="description" content="Saving simulation results to disk for post-processing">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="zpic@edu">
+<meta property="og:title" content="Saving simulation data">
+<meta property="og:url" content="http://localhost:4000/documentation/python/save">
+
+
+  <meta property="og:description" content="Saving simulation results to disk for post-processing">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/documentation/python/save">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+
+<!-- for mathjax support -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          zpic@edu
+          <span class="site-subtitle">PIC codes for plasma physics education</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about">About ZPIC</a>
+            </li><li class="masthead__menu-item">
+              <a href="/start">Getting started</a>
+            </li><li class="masthead__menu-item">
+              <a href="/documentation">Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/examples">Examples</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000//" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/documentation" itemprop="item"><span itemprop="name">Documentation</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/python" itemprop="item"><span itemprop="name">Python</span></a>
+          <meta itemprop="position" content="3" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Saving simulation data</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/start"><span class="nav__sub-title">Getting started</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/start/docker">Running a Docker image</a></li>
+          
+            <li><a href="/start/download">Download ZPIC</a></li>
+          
+            <li><a href="/start/compile">Compiling the code</a></li>
+          
+            <li><a href="/start/compile/macosx">- Mac OS X</a></li>
+          
+            <li><a href="/start/compile/linux">- Linux</a></li>
+          
+            <li><a href="/start/compile/win64">- Windows (WSL)</a></li>
+          
+            <li><a href="/start/compile/msys2">- Windows (MSYS2)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/python"><span class="nav__sub-title">Using ZPIC with Python</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/python/start">Getting started with Python</a></li>
+          
+            <li><a href="/documentation/python/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/python/data">Simulation data</a></li>
+          
+            <li><a href="/documentation/python/save" class="active">Saving output</a></li>
+          
+            <li><a href="/documentation/python/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/python/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/python/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/python/eminit">Initial EM fields</a></li>
+          
+            <li><a href="/documentation/python/emext">External EM fields</a></li>
+          
+            <li><a href="/documentation/python/spectralsolver">Spectral EM field solver</a></li>
+          
+            <li><a href="/documentation/python/api">Python API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/documentation/c"><span class="nav__sub-title">Using ZPIC with C</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/documentation/c/start">Getting started with C</a></li>
+          
+            <li><a href="/documentation/c/particles">Particle species</a></li>
+          
+            <li><a href="/documentation/c/diag">Simulation diagnostics</a></li>
+          
+            <li><a href="/documentation/c/laser">Laser pulses</a></li>
+          
+            <li><a href="/documentation/c/movwindow">Moving simulation window</a></li>
+          
+            <li><a href="/documentation/c/smooth">Current smoothing</a></li>
+          
+            <li><a href="/documentation/c/api">C API reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/examples"><span class="nav__sub-title">Examples</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/examples/#tutorials">Tutorial</a></li>
+          
+            <li><a href="/examples/#classroom-examples">Classroom examples</a></li>
+          
+            <li><a href="/examples/#landmark-papers">Landmark papers</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Saving simulation data">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Saving simulation data
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Saving simulation data</h4></header>
+              <ul class="toc__menu"><li><a href="#introduction">Introduction</a></li><li><a href="#saving-em-fields">Saving EM Fields</a></li><li><a href="#saving-currentcharge-density">Saving Current/Charge density</a></li><li><a href="#particle-data">Particle data</a></li><li><a href="#using-the-report-function">Using the report function</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="introduction">Introduction</h2>
+
+<p>You can run ZPIC from Python and access all the simulation data directly in memory which, for most situations, is the recommended way of using the code. However, if you your simulation takes a long time to compute, you may want to write diagnostic information to disk for post-processing later.</p>
+
+<p>To this effect, the <code class="language-plaintext highlighter-rouge">EMF</code>, <code class="language-plaintext highlighter-rouge">Current</code> and <code class="language-plaintext highlighter-rouge">Species</code> classes (as well as the <code class="language-plaintext highlighter-rouge">Charge</code> class on spectral codes) include a <code class="language-plaintext highlighter-rouge">report()</code> method that can be used to save specific dianostic information to disk. Data will be saved in the <code class="language-plaintext highlighter-rouge">ZDF</code> format, as in the rest of the ZPIC framework. The includes <code class="language-plaintext highlighter-rouge">zdf</code> python module allows reading ZDF file data and metadata, check the documentation for details.</p>
+
+<h2 id="saving-em-fields">Saving EM Fields</h2>
+
+<p>To save the current value of any of the EM fields we would use the <code class="language-plaintext highlighter-rouge">EMF.report( type, fc )</code> method where:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">type</code> - selects which field is to be saved. Valid values are <code class="language-plaintext highlighter-rouge">'E'</code> for the electric field and <code class="language-plaintext highlighter-rouge">'B'</code> for the magnetic field. If the simulation uses external fields then the <code class="language-plaintext highlighter-rouge">'Ep'</code> and <code class="language-plaintext highlighter-rouge">'Bp'</code> options are also available, specifying the total (self consistent + external) electric/magnetic fields.</li>
+  <li><code class="language-plaintext highlighter-rouge">fc</code> - selects which field component is saved, <code class="language-plaintext highlighter-rouge">0</code> - <em>x</em>, <code class="language-plaintext highlighter-rouge">1</code> - <em>y</em> or <code class="language-plaintext highlighter-rouge">2</code> - <em>z</em>.</li>
+</ul>
+
+<p>Files will be saved in the <code class="language-plaintext highlighter-rouge">EMF</code> directory. The following example runs a simulation up to \(t = 10.0\) and then saves \(E_z\).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sim</span> <span class="o">=</span> <span class="n">em1ds</span><span class="p">.</span><span class="n">Simulation</span><span class="p">(</span> <span class="p">...</span> <span class="p">)</span>
+
+<span class="n">sim</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Save Ez at t = 10.0
+</span><span class="n">sim</span><span class="p">.</span><span class="n">emf</span><span class="p">.</span><span class="n">report</span><span class="p">(</span><span class="s">"E"</span><span class="p">,</span><span class="mi">2</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="saving-currentcharge-density">Saving Current/Charge density</h2>
+
+<p>To save the electric current density we use the <code class="language-plaintext highlighter-rouge">Current.report(fc)</code> method, where <code class="language-plaintext highlighter-rouge">fc</code> specifies which component to save, e.g.:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Save Jz
+</span><span class="n">sim</span><span class="p">.</span><span class="n">current</span><span class="p">.</span><span class="n">report</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Files are saved to the <code class="language-plaintext highlighter-rouge">CURRENT</code> directory.</p>
+
+<p>For the charge density (spectral codes only) the <code class="language-plaintext highlighter-rouge">Charge.report()</code> method is used, taking no parameters:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Save rho
+</span><span class="n">sim</span><span class="p">.</span><span class="n">charge</span><span class="p">.</span><span class="n">report</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Files are saved to the <code class="language-plaintext highlighter-rouge">CHARGE</code> directory.</p>
+
+<h2 id="particle-data">Particle data</h2>
+
+<p>To save diagnostic particle data we use the <code class="language-plaintext highlighter-rouge">Species.report( type, quants = [], pha_nx = [], pha_range = [] )</code> method:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">type</code> specifies the actual type of diagnostic data to be saved. Must be one of:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">'particles'</code> - Raw particle data, including position and velocity of all particles</li>
+      <li><code class="language-plaintext highlighter-rouge">'charge'</code>- Species electric charge density</li>
+      <li><code class="language-plaintext highlighter-rouge">'pha'</code> - Species phasespace density, see parameters <code class="language-plaintext highlighter-rouge">quants</code>, <code class="language-plaintext highlighter-rouge">pha_nx</code> and <code class="language-plaintext highlighter-rouge">pha_range</code> below.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>When choosing <code class="language-plaintext highlighter-rouge">type = 'pha'</code> (phasespace density) the following parameters must also be specified:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">quants</code> - list of 2 quantities that make the phasespace axis, possible values are <code class="language-plaintext highlighter-rouge">'x1'</code>, <code class="language-plaintext highlighter-rouge">'x2'</code> (2D codes only), <code class="language-plaintext highlighter-rouge">'u1'</code>, <code class="language-plaintext highlighter-rouge">'u2'</code>, and <code class="language-plaintext highlighter-rouge">'u3'</code> specifying positions and generalized velocities, respectively.</li>
+  <li><code class="language-plaintext highlighter-rouge">pha_nx</code> - Dimensions of phasespace grid</li>
+  <li><code class="language-plaintext highlighter-rouge">pha_range</code>- Physical limits of the phasespace grid.</li>
+</ul>
+
+<p>The next example saves a \(x_1 - u_1\) phasespace:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">right</span><span class="p">.</span><span class="n">report</span><span class="p">(</span><span class="s">"pha"</span><span class="p">,</span>                       <span class="c1"># Phasespace density
+</span>    <span class="n">quants</span> <span class="o">=</span> <span class="p">[</span><span class="s">"x1"</span><span class="p">,</span><span class="s">"u1"</span><span class="p">],</span>                 <span class="c1"># Use 'x1' in the x axis and 'u1' in the y axis
+</span>    <span class="n">pha_nx</span> <span class="o">=</span> <span class="p">[</span><span class="mi">120</span><span class="p">,</span><span class="mi">256</span><span class="p">],</span>                   <span class="c1"># Use a 120 x 256 grid
+</span>    <span class="n">pha_range</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">pi</span><span class="p">],</span>             <span class="c1"># Use [0, 4*pi] range for the x1 axis
+</span>                 <span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">]]</span>              <span class="c1"># and [-1.5, 1.5] for the u1 axis
+</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="using-the-report-function">Using the report function</h2>
+
+<p>To simplify the process of writing diagnostic data regularly over the course of a simulation, ZPIC codes allow defining a <code class="language-plaintext highlighter-rouge">report</code> function that will be called automatically at the end of every iteration when running the simulation using the <code class="language-plaintext highlighter-rouge">Simulation.run()</code> method. This function must accept as a single argument a simulation object, allowing access to all simulation data and the use of the <code class="language-plaintext highlighter-rouge">save</code> methods discussed above.</p>
+
+<p>The following example saves the $E_x$ field at every 10 timesteps until the simulation reaches <code class="language-plaintext highlighter-rouge">tmax</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ndump</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">def</span> <span class="nf">rep</span><span class="p">(</span> <span class="n">sim</span> <span class="p">):</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">sim</span><span class="p">.</span><span class="n">n</span> <span class="o">%</span> <span class="n">ndump</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">):</span>
+    <span class="n">sim</span><span class="p">.</span><span class="n">emf</span><span class="p">.</span><span class="n">report</span><span class="p">(</span><span class="s">"E"</span><span class="p">,</span> <span class="mi">0</span> <span class="p">)</span>
+
+<span class="c1"># ...
+</span><span class="n">sim</span> <span class="o">=</span> <span class="n">zpic</span><span class="p">.</span><span class="n">Simulation</span><span class="p">(</span> <span class="p">...,</span> <span class="n">report</span> <span class="o">=</span> <span class="n">rep</span> <span class="p">)</span>
+<span class="n">sim</span><span class="p">.</span> <span class="n">run</span><span class="p">(</span> <span class="n">tmax</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<p>Alternatively, we could create a special simulation loop in Python, and advance the simulation using the <code class="language-plaintext highlighter-rouge">Simulation.iter()</code> method:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sim</span> <span class="o">=</span> <span class="n">zpic</span><span class="p">.</span><span class="n">Simulation</span><span class="p">(...)</span>
+
+<span class="k">while</span> <span class="n">sim</span><span class="p">.</span><span class="n">t</span> <span class="o">&lt;=</span> <span class="n">tmax</span> <span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span> <span class="s">"Now at t = {:g}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">sim</span><span class="p">.</span><span class="n">t</span><span class="p">))</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="n">sim</span><span class="p">.</span><span class="n">n</span> <span class="o">%</span> <span class="n">ndump</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">):</span>
+    <span class="n">sim</span><span class="p">.</span><span class="n">emf</span><span class="p">.</span><span class="n">report</span><span class="p">(</span><span class="s">"E"</span><span class="p">,</span> <span class="mi">0</span> <span class="p">)</span>
+  <span class="n">sim</span><span class="p">.</span><span class="nb">iter</span><span class="p">()</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 zpic@edu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
